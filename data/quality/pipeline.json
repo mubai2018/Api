@@ -1,10 +1,11 @@
 {
-  "attemptedAt": "2026-11-04T16:45:42.699464+00:00",
+  "attemptedAt": "2026-11-04T17:01:08.303629+00:00",
   "status": "healthy",
   "steps": {
     "quote": "success",
     "archive": "success",
-    "risk": "success"
+    "risk": "success",
+    "lifecycle": "success"
   },
   "warning": "Schedule is best effort; check quote source timestamps, not only this heartbeat"
 }
