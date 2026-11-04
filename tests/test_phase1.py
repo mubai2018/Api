@@ -40,6 +40,11 @@ class Phase1Tests(unittest.TestCase):
         with self.assertRaises(ValueError):
             phase1.parse_candle(good[:2] + ["98"] + good[3:], "1H", 2_000_000_000_000)
 
+    def test_utc8_daily_candle_alignment(self):
+        midnight_utc8 = int(dt.datetime(2026, 11, 4, 16, tzinfo=dt.timezone.utc).timestamp() * 1000)
+        row = [str(midnight_utc8), "100", "110", "90", "105", "5", "1", "1", "1"]
+        self.assertIsNotNone(phase1.parse_candle(row, "1D", midnight_utc8 + 100_000_000))
+
     def test_deduplicated_archive_and_quality_report(self):
         src = self.sample()
         phase1.write_json(phase1.ROOT / "latest.json", src)
