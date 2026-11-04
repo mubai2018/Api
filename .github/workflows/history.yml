@@ -30,8 +30,8 @@ concurrency:
 
 jobs:
   backfill:
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
+    runs-on: ubuntu-slim
+    timeout-minutes: 14
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
