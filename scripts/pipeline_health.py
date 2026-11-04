@@ -10,7 +10,7 @@ import os
 import pathlib
 
 def main():
-    names=("quote","archive","risk")
+    names=("quote","archive","risk","lifecycle")
     outcomes={name:os.environ.get(name.upper()+"_OUTCOME","unknown") for name in names}
     at=dt.datetime.now(dt.timezone.utc).isoformat()
     healthy=all(value=="success" for value in outcomes.values())
