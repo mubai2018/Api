@@ -22,6 +22,21 @@ Before using a snapshot as fresh: require `ok == true`, UTC `checkedAt` within *
 
 `rolling60m.maxCloseDrawdownPct`: worst peak-to-later-trough move **among confirmed 1m closing prices** in that window. Neither is tick-level drawdown.
 
+## Phase 1 — historical data (verified)
+
+- [Historical index](data/history/index.json): 11 candle series for SPCX/BTC/ETH, plus settled funding history and instrument specifications.
+- [Independent acceptance](data/quality/acceptance.json): latest run status and row-level checks.
+- [Chinese phase1 documentation](docs/PHASE1.md).
+- Historical SPCX data crosses the June 2026 contract rebase. Never combine pre/post-rebase raw values as though directly comparable.
+
+## Phase 3 — public market risk monitoring (enabled)
+
+- [SPCX risk snapshot](data/risk/latest.json) — order-book spread/visible liquidity, latest up to 100 public trades, 5/15/60m confirmed-close moves, funding, open interest and threshold signals.
+- [Pipeline heartbeat](data/quality/pipeline.json) — last attempted collection job outcomes, including failures.
+- [Chinese phase3 documentation](docs/PHASE3.md).
+
+Price threshold signals use only fresh validated data. GitHub Actions samples approximately every 5 minutes, while ChatGPT user-facing risk alerts are checked hourly; neither is real-time tick monitoring. There is no personal account, balance, liquidation price, or private OKX API key.
+
 ## Risk limits
 
 A periodic GitHub Actions job is not a continuous live feed or a substitute for exchange liquidation alerts. Market predictions remain uncertain; no user account or trading positions are monitored by this public-only collector.
