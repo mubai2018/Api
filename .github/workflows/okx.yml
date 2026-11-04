@@ -18,8 +18,8 @@ concurrency:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
-    timeout-minutes: 8
+    runs-on: ubuntu-slim
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
