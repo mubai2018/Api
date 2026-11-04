@@ -39,7 +39,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A data/quality/watchdog.json data/quality/watchdog_state.json data/quality/outage_events/
+          git add -A data/quality/
           if ! git diff --cached --quiet; then
             git commit -m "Update independent SPCX pipeline watchdog status"
             git pull --rebase origin main
