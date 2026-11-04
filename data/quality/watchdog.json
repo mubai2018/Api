@@ -1,34 +1,29 @@
 {
-  "checkedAt": "2026-11-04T17:30:32.736000+00:00",
-  "status": "outage",
-  "issues": [
-    "quote_pipeline_or_risk_older_than_20_minutes"
-  ],
+  "checkedAt": "2026-11-04T22:55:00.820000+00:00",
+  "status": "healthy",
+  "issues": [],
   "sourceAgeMinutes": {
-    "tickerCheckedAt": 29.42,
-    "lastTs": 29.52,
-    "markTs": 29.5,
-    "riskCheckedAt": 29.41,
-    "lastAttempt": 29.41
+    "tickerCheckedAt": 0.38,
+    "lastTs": 0.47,
+    "markTs": 0.45,
+    "riskCheckedAt": 0.36,
+    "lastAttempt": 0.36
   },
   "schedule": {
     "status": "checked",
-    "evidence": "not_yet_observed",
-    "scheduledRunsLast24h": 0,
-    "successfulScheduledRunsLast24h": 0,
-    "lastScheduledRun": null,
+    "evidence": "successful_schedule_observed",
+    "scheduledRunsLast24h": 1,
+    "successfulScheduledRunsLast24h": 1,
+    "lastScheduledRun": {
+      "runId": 41929179509,
+      "createdAt": "2026-11-04T22:53:36Z",
+      "status": "completed",
+      "conclusion": "success"
+    },
     "sampleLimit": 100,
     "warning": "No scheduled runs observed does NOT prove a configuration failure; GitHub may delay or omit runs"
   },
   "outageActive": true,
-  "lastTransitions": [
-    {
-      "at": "2026-11-04T17:30:32.736000+00:00",
-      "code": "DATA_PIPELINE_OUTAGE",
-      "transition": "opened",
-      "severity": "high",
-      "message": "Official SPCX data pipeline failed or sources older than 20m"
-    }
-  ],
+  "lastTransitions": [],
   "note": "Checks GitHub-persisted official market data, not a continuous OKX connection; independent ChatGPT hourly audit is still needed"
 }
