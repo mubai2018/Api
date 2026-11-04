@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "processedEventIds": [],
+  "lastScannedAt": null,
+  "lastSourceOutageAnchor": null,
+  "notes": "Updated by the hourly ChatGPT risk task after successful reading of event logs; recording acknowledgements does not cause a push notification by itself."
+}
