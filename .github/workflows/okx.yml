@@ -19,7 +19,7 @@ concurrency:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,17 +28,43 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Read and validate OKX official public market
+      - name: Run offline market-risk unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Collect timestamp-validated OKX official public market
+        id: quote
+        continue-on-error: true
         run: python scripts/collect.py
-      - name: Append daily market history and write data-quality report
+      - name: Append daily market archive and audit quote quality
+        id: archive
+        if: steps.quote.outcome == 'success'
+        continue-on-error: true
         run: python scripts/phase1.py snapshot
-      - name: Publish verified market snapshot and daily archive
+      - name: Collect official SPCX book, trades and derive risk signals
+        id: risk
+        if: steps.quote.outcome == 'success' && steps.archive.outcome == 'success'
+        continue-on-error: true
+        run: python scripts/phase3.py
+      - name: Publish failure-aware pipeline heartbeat
+        if: always()
+        env:
+          QUOTE_OUTCOME: ${{ steps.quote.outcome }}
+          ARCHIVE_OUTCOME: ${{ steps.archive.outcome }}
+          RISK_OUTCOME: ${{ steps.risk.outcome }}
+        run: python scripts/pipeline_health.py
+      - name: Commit public samples, risk analytics and pipeline heartbeat
+        if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/latest.json data/history/market data/quality/latest.json
+          git add -A data/latest.json data/history/market/ data/quality/latest.json data/quality/pipeline.json data/risk/
           if ! git diff --cached --quiet; then
-            git commit -m "Collect verified OKX market sample and quality report"
+            git commit -m "Collect OKX public market and phase3 risk signals"
             git pull --rebase origin main
             git push origin HEAD:main
           fi
+      - name: Enforce quote, archive and risk processing success
+        if: always()
+        run: |
+          test "${{ steps.quote.outcome }}" = "success"
+          test "${{ steps.archive.outcome }}" = "success"
+          test "${{ steps.risk.outcome }}" = "success"
