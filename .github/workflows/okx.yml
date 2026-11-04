@@ -56,7 +56,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A data/latest.json data/history/market/ data/quality/latest.json data/quality/pipeline.json data/risk/
+          git add -A data/
           if ! git diff --cached --quiet; then
             git commit -m "Collect OKX public market and phase3 risk signals"
             git pull --rebase origin main
