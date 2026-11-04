@@ -1,0 +1,8 @@
+{
+  "outageActive": false,
+  "healthyStreak": 0,
+  "openedAt": null,
+  "lastCheckAt": "2026-11-04T17:01:39.131000+00:00",
+  "lastStatus": "healthy",
+  "lastTransitions": []
+}
