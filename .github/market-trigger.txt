@@ -1,2 +1,3 @@
-quality recheck after initial phase1 archive completion
-reason=verify metadata availability and fresh market quotes
+phase3-first-integration-test
+version=2026-11-05
+reason=validate new public order book, trades, risk signals and pipeline heartbeat
