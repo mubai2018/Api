@@ -2,6 +2,10 @@ name: OKX public market snapshot
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/market-trigger.txt'
   schedule:
     - cron: '3-58/5 * * * *'
 
