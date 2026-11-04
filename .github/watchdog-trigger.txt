@@ -1,0 +1,3 @@
+first-reliability-acceptance
+verify=source-freshness,cron-events,outage-and-recovery
+mode=read-only-market
