@@ -6,6 +6,17 @@ Public, read-only OKX market snapshots for **SPCX-USDT-SWAP**, **BTC-USDT-SWAP**
 
 **Workflows:** https://github.com/mubai2018/Api/actions/workflows/okx.yml
 
+## Live SPCX quote source (Railway, primary)
+
+- **Real-time quote**: https://spcx-live-feed-production.up.railway.app/latest
+- **Source freshness/health**: https://spcx-live-feed-production.up.railway.app/health
+- **In-memory threshold transitions**: https://spcx-live-feed-production.up.railway.app/events
+- Railway project `spcx-live-monitor`, function service `spcx-live-feed` (public OKX WS over port 443, REST fallback). No OKX private keys.
+- **Verified live** 2026-11-05 02:43:42 KST: WS ticker 137.68, mark 137.68 USDT, source ages 228ms/137ms; 45 websocket messages and 0 reconnects; HTTP health 200.
+- Railway is designed as the primary read-only price source; GitHub Actions below remains the periodic market archive and historical data source. GitHub has not yet demonstrated successful `schedule` trigger runs. These are distinct components.
+- Live service holds its recent threshold events and sampled tick history **in memory**; they reset upon restart. No instant phone notification channel has been deployed. An HTTP 200 is not enough: consumers must inspect `healthy`, `last.ts`, `mark.ts` and `ageMs` and reject stale data.
+- Real-time service may incur Railway usage fees; inspect Railway billing/usage in your account. This does not access the trading account and does not trade.
+
 ## Collection
 
 - GitHub Actions polls OKX official `openapi.okx.com` approximately every five minutes, subject to GitHub scheduling delays and dropped jobs.
