@@ -211,9 +211,12 @@ def fetch_funding(symbol, mode):
             if x.get("instId") != symbol:
                 raise ValueError("wrong funding instrument")
             stamp = int(x["fundingTime"])
-            rate = float(x["fundingRate"])
-            if stamp >= horizon and stamp <= now and math.isfinite(rate):
-                out[stamp] = [stamp, rate]
+            realized = float(x["realizedRate"])
+            indicated = float(x["fundingRate"])
+            if not (math.isfinite(realized) and math.isfinite(indicated)):
+                raise ValueError("non-finite history funding rate")
+            if stamp >= horizon and stamp <= now:
+                out[stamp] = [stamp, realized, indicated]
         pages += 1
         if oldest <= horizon or len(data) < 100:
             break
