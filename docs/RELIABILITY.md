@@ -8,7 +8,8 @@
 2. 独立看门狗 `.github/workflows/watchdog.yml`：另一条GitHub Actions计划每15分钟检查已有行情、风险和采集心跳，写入 `data/quality/watchdog.json`、`data/quality/watchdog_state.json`；如果采集缺失超过20分钟，记录一次故障open；连续两次健康看门狗检查才记录recovered。状态变迁留在 `data/quality/outage_events/YYYY-MM-DD.jsonl`。
 3. 看门狗用GitHub自身Actions REST API查询 **真正由 `schedule` 事件触发** 的主采集运行记录，写入 `watchdog.schedule`。由`push`手动触发成功不等于`schedule`触发成功，`not_yet_observed`表示尚未验证。
 4. **独立ChatGPT每小时巡检**：继续使用已启用的 `SPCX风险监测` 自动任务；会检查所有源时间戳及故障记录。此通道比GitHub定时看门狗独立，但仅每小时一次，不能替代秒级交易预警。
-5. `data/quality/notification_cursor.json` 储存用户侧通知处理的事件ID。ChatGPT巡检实际通知后才尝试标记已处理，降低重复通知；写入若失败不可宣称成功。
+5. 若GitHub数据超过20分钟未更新且没有相关工作流运行中，ChatGPT的小时巡检任务可在至少间隔50分钟的前提下更新 `.github/market-trigger.txt`，请求一次公开行情采集。该兜底只保证尝试触发，不保证实时行情已恢复；也不是5分钟级通知。
+6. `data/quality/notification_cursor.json` 储存用户侧通知处理的事件ID。ChatGPT巡检实际通知后才尝试标记已处理，降低重复通知；写入若失败不可宣称成功。
 
 ## 市场风险生命周期
 
