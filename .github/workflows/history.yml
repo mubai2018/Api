@@ -16,6 +16,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/phase1.py'
+      - 'scripts/audit_phase1.py'
       - '.github/workflows/history.yml'
   schedule:
     - cron: '23 2 * * *'
@@ -33,21 +34,34 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 1
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Collect verified historical candles, funding and instrument specs
+      - name: Run offline integrity unit tests
+        run: python -m unittest discover -s tests -v
+      - id: backfill
+        name: Collect OKX historical candles, settled funding and contract specs
+        continue-on-error: true
         env:
           MODE: ${{ inputs.mode || 'auto' }}
         run: python scripts/phase1.py backfill "$MODE"
-      - name: Commit monthly archives, index and metadata
+      - id: audit
+        name: Independently audit published history and archive completeness
+        if: always()
+        continue-on-error: true
+        run: python scripts/audit_phase1.py
+      - name: Preserve archived data and acceptance report
+        if: always()
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/history/candles data/history/funding data/history/index.json data/metadata
+          git add -A data/
           if ! git diff --cached --quiet; then
-            git commit -m "Archive OKX official candles, funding and contract specs"
+            git commit -m "Archive and audit OKX public historical data"
             git push
           fi
+      - name: Enforce actual successful backfill and integrity audit
+        if: always()
+        run: |
+          test "${{ steps.backfill.outcome }}" = "success"
+          test "${{ steps.audit.outcome }}" = "success"
