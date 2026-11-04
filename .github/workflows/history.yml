@@ -1,0 +1,53 @@
+name: OKX phase1 history backfill and instrument specs
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'auto (first run full, later incremental), full or incremental'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - full
+          - incremental
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/phase1.py'
+      - '.github/workflows/history.yml'
+  schedule:
+    - cron: '23 2 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: okx-data-writer
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect verified historical candles, funding and instrument specs
+        env:
+          MODE: ${{ inputs.mode || 'auto' }}
+        run: python scripts/phase1.py backfill "$MODE"
+      - name: Commit monthly archives, index and metadata
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/history/candles data/history/funding data/history/index.json data/metadata
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive OKX official candles, funding and contract specs"
+            git push
+          fi
