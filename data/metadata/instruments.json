@@ -1,0 +1,55 @@
+{
+  "checkedAt":"2026-11-04T16:28:21.146070Z",
+  "source":"OKX GET /api/v5/public/instruments",
+  "symbols":{
+    "SPCX-USDT-SWAP":{
+      "instId":"SPCX-USDT-SWAP",
+      "instFamily":"SPCX-USDT",
+      "state":"live",
+      "ctVal":"1",
+      "ctMult":"1",
+      "ctValCcy":"SPCX",
+      "ctType":"linear",
+      "tickSz":"0.01",
+      "lotSz":"0.01",
+      "minSz":"0.01",
+      "lever":"75",
+      "listTime":"1778144400000"
+    },
+    "BTC-USDT-SWAP":{
+      "instId":"BTC-USDT-SWAP",
+      "instFamily":"BTC-USDT",
+      "state":"live",
+      "ctVal":"0.01",
+      "ctMult":"1",
+      "ctValCcy":"BTC",
+      "ctType":"linear",
+      "tickSz":"0.1",
+      "lotSz":"0.01",
+      "minSz":"0.01",
+      "lever":"100",
+      "listTime":"1573557408000"
+    },
+    "ETH-USDT-SWAP":{
+      "instId":"ETH-USDT-SWAP",
+      "instFamily":"ETH-USDT",
+      "state":"live",
+      "ctVal":"0.1",
+      "ctMult":"1",
+      "ctValCcy":"ETH",
+      "ctType":"linear",
+      "tickSz":"0.01",
+      "lotSz":"0.01",
+      "minSz":"0.01",
+      "lever":"100",
+      "listTime":"1573557408000"
+    }
+  },
+  "spcxHistoricalRebase":{
+    "effectiveUtc":"2026-06-02T07:10:00Z",
+    "preRebaseSymbol":"SPACEXUSDT",
+    "toRatio":12.52,
+    "rule":"DO NOT join raw pre/post rebase prices for unadjusted backtests",
+    "source":"OKX notice published 2026-06-01"
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "checkedAt": "2026-11-04T16:30:45.620280+00:00",
+  "status": "degraded",
+  "issues": [],
+  "warnings": [
+    "stale completed candles: SPCX-USDT-SWAP/1m",
+    "less than 90% target coverage: SPCX-USDT-SWAP/1D"
+  ],
+  "candles": {
+    "SPCX-USDT-SWAP/1m": {
+      "count": 10079,
+      "firstTs": 1793204940000,
+      "lastTs": 1793809620000,
+      "fileCount": 2,
+      "targetDays": 7,
+      "coveredDays": 7.0,
+      "coveragePct": 99.99,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 0.06,
+      "valid": true
+    },
+    "SPCX-USDT-SWAP/5m": {
+      "count": 8639,
+      "firstTs": 1791217800000,
+      "lastTs": 1793809200000,
+      "fileCount": 2,
+      "targetDays": 30,
+      "coveredDays": 30.0,
+      "coveragePct": 99.99,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 0.18,
+      "valid": true
+    },
+    "SPCX-USDT-SWAP/1H": {
+      "count": 2159,
+      "firstTs": 1786035600000,
+      "lastTs": 1793804400000,
+      "fileCount": 4,
+      "targetDays": 90,
+      "coveredDays": 89.96,
+      "coveragePct": 99.95,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 1.51,
+      "valid": true
+    },
+    "SPCX-USDT-SWAP/4H": {
+      "count": 1079,
+      "firstTs": 1778270400000,
+      "lastTs": 1793793600000,
+      "fileCount": 7,
+      "targetDays": 180,
+      "coveredDays": 179.83,
+      "coveragePct": 99.91,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 4.51,
+      "valid": true
+    },
+    "SPCX-USDT-SWAP/1D": {
+      "count": 182,
+      "firstTs": 1778083200000,
+      "lastTs": 1793721600000,
+      "fileCount": 7,
+      "targetDays": 365,
+      "coveredDays": 182.0,
+      "coveragePct": 49.86,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 24.51,
+      "valid": true
+    },
+    "BTC-USDT-SWAP/1H": {
+      "count": 2159,
+      "firstTs": 1786035600000,
+      "lastTs": 1793804400000,
+      "fileCount": 4,
+      "targetDays": 90,
+      "coveredDays": 89.96,
+      "coveragePct": 99.95,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 1.51,
+      "valid": true
+    },
+    "BTC-USDT-SWAP/4H": {
+      "count": 1079,
+      "firstTs": 1778270400000,
+      "lastTs": 1793793600000,
+      "fileCount": 7,
+      "targetDays": 180,
+      "coveredDays": 179.83,
+      "coveragePct": 99.91,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 4.51,
+      "valid": true
+    },
+    "BTC-USDT-SWAP/1D": {
+      "count": 364,
+      "firstTs": 1762358400000,
+      "lastTs": 1793721600000,
+      "fileCount": 13,
+      "targetDays": 365,
+      "coveredDays": 364.0,
+      "coveragePct": 99.73,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 24.51,
+      "valid": true
+    },
+    "ETH-USDT-SWAP/1H": {
+      "count": 2159,
+      "firstTs": 1786035600000,
+      "lastTs": 1793804400000,
+      "fileCount": 4,
+      "targetDays": 90,
+      "coveredDays": 89.96,
+      "coveragePct": 99.95,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 1.51,
+      "valid": true
+    },
+    "ETH-USDT-SWAP/4H": {
+      "count": 1079,
+      "firstTs": 1778270400000,
+      "lastTs": 1793793600000,
+      "fileCount": 7,
+      "targetDays": 180,
+      "coveredDays": 179.83,
+      "coveragePct": 99.91,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 4.51,
+      "valid": true
+    },
+    "ETH-USDT-SWAP/1D": {
+      "count": 364,
+      "firstTs": 1762358400000,
+      "lastTs": 1793721600000,
+      "fileCount": 13,
+      "targetDays": 365,
+      "coveredDays": 364.0,
+      "coveragePct": 99.73,
+      "missingBarsWithinCoverage": 0,
+      "duplicateOrUnordered": 0,
+      "invalidRows": 0,
+      "latestAgeHours": 24.51,
+      "valid": true
+    }
+  },
+  "funding": {
+    "SPCX-USDT-SWAP": {
+      "count": 270,
+      "firstTs": 1786060800000,
+      "lastTs": 1793808000000,
+      "invalidRows": 0,
+      "duplicateOrUnordered": 0,
+      "valid": true
+    },
+    "BTC-USDT-SWAP": {
+      "count": 270,
+      "firstTs": 1786060800000,
+      "lastTs": 1793808000000,
+      "invalidRows": 0,
+      "duplicateOrUnordered": 0,
+      "valid": true
+    },
+    "ETH-USDT-SWAP": {
+      "count": 270,
+      "firstTs": 1786060800000,
+      "lastTs": 1793808000000,
+      "invalidRows": 0,
+      "duplicateOrUnordered": 0,
+      "valid": true
+    }
+  },
+  "market": {
+    "count": 2,
+    "firstTs": 1793808426201,
+    "lastTs": 1793808991008,
+    "invalidRows": 0,
+    "duplicate": 0,
+    "gapsOver15Minutes": 0,
+    "ageMinutes": 14.2,
+    "valid": true
+  },
+  "indexExists": true,
+  "definition": "No fabricated/interpolated bars. Coverage percent is actual span vs target; gaps are measured inside observed span."
+}
