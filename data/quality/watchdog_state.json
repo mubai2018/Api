@@ -1,8 +1,16 @@
 {
-  "outageActive": false,
+  "outageActive": true,
   "healthyStreak": 0,
-  "openedAt": null,
-  "lastCheckAt": "2026-11-04T17:01:39.131000+00:00",
-  "lastStatus": "healthy",
-  "lastTransitions": []
+  "openedAt": "2026-11-04T17:30:32.736000+00:00",
+  "lastCheckAt": "2026-11-04T17:30:32.736000+00:00",
+  "lastStatus": "outage",
+  "lastTransitions": [
+    {
+      "at": "2026-11-04T17:30:32.736000+00:00",
+      "code": "DATA_PIPELINE_OUTAGE",
+      "transition": "opened",
+      "severity": "high",
+      "message": "Official SPCX data pipeline failed or sources older than 20m"
+    }
+  ]
 }

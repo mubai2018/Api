@@ -1,13 +1,15 @@
 {
-  "checkedAt": "2026-11-04T17:01:39.131000+00:00",
-  "status": "healthy",
-  "issues": [],
+  "checkedAt": "2026-11-04T17:30:32.736000+00:00",
+  "status": "outage",
+  "issues": [
+    "quote_pipeline_or_risk_older_than_20_minutes"
+  ],
   "sourceAgeMinutes": {
-    "tickerCheckedAt": 0.53,
-    "lastTs": 0.62,
-    "markTs": 0.61,
-    "riskCheckedAt": 0.51,
-    "lastAttempt": 0.51
+    "tickerCheckedAt": 29.42,
+    "lastTs": 29.52,
+    "markTs": 29.5,
+    "riskCheckedAt": 29.41,
+    "lastAttempt": 29.41
   },
   "schedule": {
     "status": "checked",
@@ -18,7 +20,15 @@
     "sampleLimit": 100,
     "warning": "No scheduled runs observed does NOT prove a configuration failure; GitHub may delay or omit runs"
   },
-  "outageActive": false,
-  "lastTransitions": [],
+  "outageActive": true,
+  "lastTransitions": [
+    {
+      "at": "2026-11-04T17:30:32.736000+00:00",
+      "code": "DATA_PIPELINE_OUTAGE",
+      "transition": "opened",
+      "severity": "high",
+      "message": "Official SPCX data pipeline failed or sources older than 20m"
+    }
+  ],
   "note": "Checks GitHub-persisted official market data, not a continuous OKX connection; independent ChatGPT hourly audit is still needed"
 }
