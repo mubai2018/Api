@@ -2,6 +2,8 @@
 
 Public, read-only OKX market snapshots for **SPCX-USDT-SWAP**, **BTC-USDT-SWAP** and **ETH-USDT-SWAP**. No OKX API key, private data, or trading actions.
 
+- [Chinese live data root-cause and repair record](docs/REALTIME_DATA_FIX.md) — confirmed WebSocket vs ChatGPT JSON-fetch bridge, periodic structured logs, BTC/ETH and confirmed candles, remaining limits.
+
 **Latest snapshot:** https://raw.githubusercontent.com/mubai2018/Api/main/data/latest.json
 
 **Workflows:** https://github.com/mubai2018/Api/actions/workflows/okx.yml
