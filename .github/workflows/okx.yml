@@ -44,12 +44,18 @@ jobs:
         if: steps.quote.outcome == 'success' && steps.archive.outcome == 'success'
         continue-on-error: true
         run: python scripts/phase3.py
+      - name: Track unique risk events, escalation and two-sample recovery
+        id: lifecycle
+        if: steps.risk.outcome == 'success'
+        continue-on-error: true
+        run: python scripts/alert_lifecycle.py
       - name: Publish failure-aware pipeline heartbeat
         if: always()
         env:
           QUOTE_OUTCOME: ${{ steps.quote.outcome }}
           ARCHIVE_OUTCOME: ${{ steps.archive.outcome }}
           RISK_OUTCOME: ${{ steps.risk.outcome }}
+          LIFECYCLE_OUTCOME: ${{ steps.lifecycle.outcome }}
         run: python scripts/pipeline_health.py
       - name: Commit public samples, risk analytics and pipeline heartbeat
         if: always()
@@ -68,3 +74,4 @@ jobs:
           test "${{ steps.quote.outcome }}" = "success"
           test "${{ steps.archive.outcome }}" = "success"
           test "${{ steps.risk.outcome }}" = "success"
+          test "${{ steps.lifecycle.outcome }}" = "success"
