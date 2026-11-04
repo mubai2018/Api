@@ -1,0 +1,2 @@
+quality recheck after initial phase1 archive completion
+reason=verify metadata availability and fresh market quotes
