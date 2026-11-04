@@ -2,6 +2,11 @@ name: OKX public market snapshot
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/collect.py'
+      - '.github/workflows/okx.yml'
   schedule:
     - cron: '3-58/5 * * * *'
 
