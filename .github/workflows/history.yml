@@ -23,7 +23,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: okx-data-writer
+  group: okx-history-backfill
   cancel-in-progress: false
 
 jobs:
