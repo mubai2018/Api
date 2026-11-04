@@ -1,0 +1,30 @@
+name: OKX public WebSocket port 443 preflight
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'services/okx_live.py'
+      - 'services/test_ws.py'
+      - 'services/requirements.txt'
+      - '.github/workflows/live-preflight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  websocket:
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile standalone WebSocket monitoring code
+        run: python -m py_compile services/okx_live.py services/test_ws.py
+      - name: Install public market WebSocket client
+        run: python -m pip install -r services/requirements.txt
+      - name: Verify official SPCX ticker and mark data on port 443
+        run: python services/test_ws.py
