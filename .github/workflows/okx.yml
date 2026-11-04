@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/collect.py'
+      - 'scripts/phase1.py'
       - '.github/workflows/okx.yml'
   schedule:
     - cron: '3-58/5 * * * *'
@@ -14,26 +15,28 @@ permissions:
   contents: write
 
 concurrency:
-  group: okx-market-snapshot
+  group: okx-data-writer
   cancel-in-progress: false
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 6
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Read and validate OKX public ticker and mark price
+      - name: Read and validate OKX official public market
         run: python scripts/collect.py
-      - name: Publish valid snapshot
+      - name: Append daily market history and write data-quality report
+        run: python scripts/phase1.py snapshot
+      - name: Publish verified market snapshot and daily archive
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/latest.json
+          git add data/latest.json data/history/market data/quality/latest.json
           if ! git diff --cached --quiet; then
-            git commit -m "Update verified OKX public snapshot"
+            git commit -m "Collect verified OKX market sample and quality report"
             git push
           fi
