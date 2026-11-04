@@ -1,27 +1,27 @@
 {
-  "checkedAt":"2026-11-04T16:30:44.768771Z",
-  "mode":"full",
+  "checkedAt":"2026-11-04T16:47:39.844599Z",
+  "mode":"incremental",
   "source":"OKX official history-candles and funding-rate-history",
   "candles":{
     "SPCX-USDT-SWAP/1m":{
-      "count":10079,
+      "count":10098,
       "firstTs":1793204940000,
-      "lastTs":1793809620000,
+      "lastTs":1793810760000,
       "gapCount":0,
       "fileCount":2,
       "targetDays":7,
-      "fetchedRows":10079,
-      "requestPages":101
+      "fetchedRows":5759,
+      "requestPages":58
     },
     "SPCX-USDT-SWAP/5m":{
-      "count":8639,
+      "count":8643,
       "firstTs":1791217800000,
-      "lastTs":1793809200000,
+      "lastTs":1793810400000,
       "gapCount":0,
       "fileCount":2,
       "targetDays":30,
-      "fetchedRows":8639,
-      "requestPages":87
+      "fetchedRows":1151,
+      "requestPages":12
     },
     "SPCX-USDT-SWAP/1H":{
       "count":2159,
@@ -30,8 +30,8 @@
       "gapCount":0,
       "fileCount":4,
       "targetDays":90,
-      "fetchedRows":2159,
-      "requestPages":22
+      "fetchedRows":95,
+      "requestPages":1
     },
     "SPCX-USDT-SWAP/4H":{
       "count":1079,
@@ -40,8 +40,8 @@
       "gapCount":0,
       "fileCount":7,
       "targetDays":180,
-      "fetchedRows":1079,
-      "requestPages":11
+      "fetchedRows":23,
+      "requestPages":1
     },
     "SPCX-USDT-SWAP/1D":{
       "count":182,
@@ -50,8 +50,8 @@
       "gapCount":0,
       "fileCount":7,
       "targetDays":365,
-      "fetchedRows":182,
-      "requestPages":2
+      "fetchedRows":3,
+      "requestPages":1
     },
     "BTC-USDT-SWAP/1H":{
       "count":2159,
@@ -60,8 +60,8 @@
       "gapCount":0,
       "fileCount":4,
       "targetDays":90,
-      "fetchedRows":2159,
-      "requestPages":22
+      "fetchedRows":95,
+      "requestPages":1
     },
     "BTC-USDT-SWAP/4H":{
       "count":1079,
@@ -70,8 +70,8 @@
       "gapCount":0,
       "fileCount":7,
       "targetDays":180,
-      "fetchedRows":1079,
-      "requestPages":11
+      "fetchedRows":23,
+      "requestPages":1
     },
     "BTC-USDT-SWAP/1D":{
       "count":364,
@@ -80,8 +80,8 @@
       "gapCount":0,
       "fileCount":13,
       "targetDays":365,
-      "fetchedRows":364,
-      "requestPages":4
+      "fetchedRows":3,
+      "requestPages":1
     },
     "ETH-USDT-SWAP/1H":{
       "count":2159,
@@ -90,8 +90,8 @@
       "gapCount":0,
       "fileCount":4,
       "targetDays":90,
-      "fetchedRows":2159,
-      "requestPages":22
+      "fetchedRows":95,
+      "requestPages":1
     },
     "ETH-USDT-SWAP/4H":{
       "count":1079,
@@ -100,8 +100,8 @@
       "gapCount":0,
       "fileCount":7,
       "targetDays":180,
-      "fetchedRows":1079,
-      "requestPages":11
+      "fetchedRows":23,
+      "requestPages":1
     },
     "ETH-USDT-SWAP/1D":{
       "count":364,
@@ -110,8 +110,8 @@
       "gapCount":0,
       "fileCount":13,
       "targetDays":365,
-      "fetchedRows":364,
-      "requestPages":4
+      "fetchedRows":3,
+      "requestPages":1
     }
   },
   "funding":{
@@ -121,8 +121,8 @@
       "lastTs":1793808000000,
       "gapCount":0,
       "fileCount":4,
-      "fetchedRows":270,
-      "requestPages":3
+      "fetchedRows":21,
+      "requestPages":1
     },
     "BTC-USDT-SWAP":{
       "count":270,
@@ -130,8 +130,8 @@
       "lastTs":1793808000000,
       "gapCount":0,
       "fileCount":4,
-      "fetchedRows":270,
-      "requestPages":3
+      "fetchedRows":21,
+      "requestPages":1
     },
     "ETH-USDT-SWAP":{
       "count":270,
@@ -139,8 +139,8 @@
       "lastTs":1793808000000,
       "gapCount":0,
       "fileCount":4,
-      "fetchedRows":270,
-      "requestPages":3
+      "fetchedRows":21,
+      "requestPages":1
     }
   },
   "warnings":[],

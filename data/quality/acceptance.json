@@ -1,38 +1,35 @@
 {
-  "checkedAt": "2026-11-04T16:30:45.620280+00:00",
-  "status": "degraded",
+  "checkedAt": "2026-11-04T16:47:40.253465+00:00",
+  "status": "pass",
   "issues": [],
-  "warnings": [
-    "stale completed candles: SPCX-USDT-SWAP/1m",
-    "less than 90% target coverage: SPCX-USDT-SWAP/1D"
-  ],
+  "warnings": [],
   "candles": {
     "SPCX-USDT-SWAP/1m": {
-      "count": 10079,
+      "count": 10098,
       "firstTs": 1793204940000,
-      "lastTs": 1793809620000,
+      "lastTs": 1793810760000,
       "fileCount": 2,
       "targetDays": 7,
-      "coveredDays": 7.0,
-      "coveragePct": 99.99,
+      "coveredDays": 7.01,
+      "coveragePct": 100,
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 0.06,
+      "latestAgeHours": 0.03,
       "valid": true
     },
     "SPCX-USDT-SWAP/5m": {
-      "count": 8639,
+      "count": 8643,
       "firstTs": 1791217800000,
-      "lastTs": 1793809200000,
+      "lastTs": 1793810400000,
       "fileCount": 2,
       "targetDays": 30,
-      "coveredDays": 30.0,
-      "coveragePct": 99.99,
+      "coveredDays": 30.01,
+      "coveragePct": 100,
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 0.18,
+      "latestAgeHours": 0.13,
       "valid": true
     },
     "SPCX-USDT-SWAP/1H": {
@@ -46,7 +43,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 1.51,
+      "latestAgeHours": 1.79,
       "valid": true
     },
     "SPCX-USDT-SWAP/4H": {
@@ -60,7 +57,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 4.51,
+      "latestAgeHours": 4.79,
       "valid": true
     },
     "SPCX-USDT-SWAP/1D": {
@@ -68,13 +65,13 @@
       "firstTs": 1778083200000,
       "lastTs": 1793721600000,
       "fileCount": 7,
-      "targetDays": 365,
+      "targetDays": 181.32476748842592,
       "coveredDays": 182.0,
-      "coveragePct": 49.86,
+      "coveragePct": 100,
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 24.51,
+      "latestAgeHours": 24.79,
       "valid": true
     },
     "BTC-USDT-SWAP/1H": {
@@ -88,7 +85,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 1.51,
+      "latestAgeHours": 1.79,
       "valid": true
     },
     "BTC-USDT-SWAP/4H": {
@@ -102,7 +99,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 4.51,
+      "latestAgeHours": 4.79,
       "valid": true
     },
     "BTC-USDT-SWAP/1D": {
@@ -116,7 +113,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 24.51,
+      "latestAgeHours": 24.79,
       "valid": true
     },
     "ETH-USDT-SWAP/1H": {
@@ -130,7 +127,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 1.51,
+      "latestAgeHours": 1.79,
       "valid": true
     },
     "ETH-USDT-SWAP/4H": {
@@ -144,7 +141,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 4.51,
+      "latestAgeHours": 4.79,
       "valid": true
     },
     "ETH-USDT-SWAP/1D": {
@@ -158,7 +155,7 @@
       "missingBarsWithinCoverage": 0,
       "duplicateOrUnordered": 0,
       "invalidRows": 0,
-      "latestAgeHours": 24.51,
+      "latestAgeHours": 24.79,
       "valid": true
     }
   },
@@ -189,13 +186,13 @@
     }
   },
   "market": {
-    "count": 2,
+    "count": 4,
     "firstTs": 1793808426201,
-    "lastTs": 1793808991008,
+    "lastTs": 1793810742078,
     "invalidRows": 0,
     "duplicate": 0,
-    "gapsOver15Minutes": 0,
-    "ageMinutes": 14.2,
+    "gapsOver15Minutes": 1,
+    "ageMinutes": 2.0,
     "valid": true
   },
   "indexExists": true,
