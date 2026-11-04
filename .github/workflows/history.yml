@@ -47,6 +47,17 @@ jobs:
         if: always()
         continue-on-error: true
         run: python scripts/audit_phase1.py
+      - name: Preserve acceptance diagnostics even if Git publishing fails
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase1-audit-${{ github.run_id }}
+          path: |
+            data/history/index.json
+            data/quality/acceptance.json
+            data/metadata/instruments.json
+          retention-days: 14
+          if-no-files-found: warn
       - name: Preserve archived data and acceptance report
         if: always()
         run: |
