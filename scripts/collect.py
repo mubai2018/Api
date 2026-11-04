@@ -74,11 +74,19 @@ def rolling_60m(symbol, now):
     for px in closes:
         peak = max(peak, px)
         drawdown = min(drawdown, 100*(px/peak - 1))
+    tail15 = closes[-16:]
+    peak15, drop15 = tail15[0], 0.0
+    for px in tail15:
+        peak15 = max(peak15, px)
+        drop15 = min(drop15, 100 * (px/peak15-1))
     return {"method": "confirmed 1m close-to-close",
             "fromTs": done[0]["ts"], "toTs": done[-1]["ts"],
             "firstClose": closes[0], "lastClose": closes[-1],
             "netReturnPct": round(100*(closes[-1]/closes[0] - 1), 4),
-            "maxCloseDrawdownPct": round(drawdown, 4), "points": len(closes)}
+            "maxCloseDrawdownPct": round(drawdown, 4),
+            "net5mPct": round(100*(closes[-1]/closes[-6]-1), 4),
+            "net15mPct": round(100*(closes[-1]/closes[-16]-1), 4),
+            "max15mCloseDrawdownPct": round(drop15, 4), "points": len(closes)}
 
 def extras(symbol, now, errors):
     out = {}
