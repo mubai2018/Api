@@ -26,7 +26,7 @@
 | SPCX/BTC/ETH USDT永续 | 日线（UTC+8开盘） | 365天 |
 | SPCX/BTC/ETH USDT永续 | 已结算资金费 | 最长90天目标 |
 
-这些是**回填目标**，不是已经取得的样本保证。若合约上市不足对应天数，历史自然更短。用 `index.json` 的 `firstTs`、`lastTs`、`count`、`gapCount` 和 `warnings` 核对实际覆盖。
+这些是**回填目标**，不是已经取得的样本保证。**已核验SPCX合约官方上市记录为2026-05-07，365天目标超过上市后可用历史，独立审计已改为按实际上市时间计算有效目标覆盖**；该变化不删除原始行情，也不伪造上市前记录。用 `index.json` 的 `firstTs`、`lastTs`、`count`、`gapCount` 和 `warnings` 核对实际覆盖。
 
 ## 文件结构与精度
 
@@ -38,9 +38,9 @@ K线JSONL每行：
 
 历史资金费每行：
 ```
-[fundingTime_ms, realized_funding_rate]
+[fundingTime_ms, realized_funding_rate, indicated_funding_rate]
 ```
-**资金费率本身不是账户已支付资金费**，也不能乘以当前仓位直接得出历史实际扣费金额。未平仓量是全市场值，不区分多空。
+这里第二列是OKX返回的 `realizedRate`（实际结算费率），第三列是 `fundingRate`（指示费率）；历史归档不混淆二者。**资金费率本身不是账户已支付资金费**，也不能乘以当前仓位直接得出历史实际扣费金额。未平仓量是全市场值，不区分多空。
 
 每5分钟的公开行情归档中，`ts` 为采集完成时间，具体报价的真实生成时间见 `lastTs`、`markTs`。采集可能出现间断，不可把计划采样频率当作实际持续采样。
 
@@ -65,6 +65,6 @@ OKX于 **2026-06-02** 执行SPACEXUSDT盘前永续Rebase并更名为SPCXUSDT，�
 - `full`：按目标范围重新回填/按时间戳合并，适合修复过去的数据缺口。
 - `incremental`：仅获取最近几天，适合日常维护。
 
-查看 `data/history/index.json`、`data/quality/latest.json` 和工作流日志判断运行结果。使用 `python -m unittest discover -s tests -v` 做离线代码检查。
+查看 `data/history/index.json`、`data/quality/acceptance.json`、`data/quality/latest.json` 和工作流日志判断运行结果。已完成第一阶段的真实历史回填和独立审计：11组K线29,342条、3组资金费810条，记录无重复/非法OHLC/内部缺口。曾发现GitHub计划采集超过15分钟的间断，后续以监控心跳持续评估，不将计划5分钟当作实际5分钟。使用 `python -m unittest discover -s tests -v` 做离线代码检查。
 
 注意：GitHub Actions定时任务并非秒级实时流，可能延迟或漏执行。旧的价格警报与两小时研判仍首先读取 `data/latest.json`，严格检查时效。任何交易所实时强平预警仍应优先使用OKX自身风险系统。
