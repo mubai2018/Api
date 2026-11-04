@@ -1,0 +1,3 @@
+phase1 acceptance run: 2026-11-05 KST
+mode=auto
+purpose=verify real history collection and publication
