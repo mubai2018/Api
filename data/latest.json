@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-11-04T15:41:15.151716+00:00",
+  "ok": true,
+  "source": "OKX official public REST API",
+  "symbols": {
+    "SPCX-USDT-SWAP": {
+      "instId": "SPCX-USDT-SWAP",
+      "last": 138.47,
+      "markPx": 138.43,
+      "lastTs": 1793806874272,
+      "markTs": 1793806875605,
+      "open24h": 142.39,
+      "high24h": 142.81,
+      "low24h": 129.94,
+      "tickerEndpoint": "https://openapi.okx.com",
+      "markEndpoint": "https://openapi.okx.com"
+    },
+    "BTC-USDT-SWAP": {
+      "instId": "BTC-USDT-SWAP",
+      "last": 80540.6,
+      "markPx": 80541.7,
+      "lastTs": 1793806875135,
+      "markTs": 1793806876008,
+      "open24h": 77599.9,
+      "high24h": 81199.9,
+      "low24h": 75690.1,
+      "tickerEndpoint": "https://openapi.okx.com",
+      "markEndpoint": "https://openapi.okx.com"
+    },
+    "ETH-USDT-SWAP": {
+      "instId": "ETH-USDT-SWAP",
+      "last": 2436.0,
+      "markPx": 2436.16,
+      "lastTs": 1793806875266,
+      "markTs": 1793806876433,
+      "open24h": 2296.96,
+      "high24h": 2451.13,
+      "low24h": 2225.01,
+      "tickerEndpoint": "https://openapi.okx.com",
+      "markEndpoint": "https://openapi.okx.com"
+    }
+  }
+}
