@@ -157,7 +157,7 @@ def parse_candle(c, bar, upper):
         raise ValueError("non-finite candle")
     if min(o, h, l, cl) <= 0 or vol < 0 or h < max(o, cl) or l > min(o, cl) or h < l:
         raise ValueError("invalid OHLCV")
-    if ts % SIZES[bar] != 0:
+    if (ts - (16 * 3_600_000 if bar == "1D" else 0)) % SIZES[bar] != 0:
         raise ValueError("unaligned candle timestamp")
     return [ts, o, h, l, cl, vol]
 
