@@ -24,6 +24,9 @@ jobs:
     timeout-minutes: 6
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -38,5 +41,6 @@ jobs:
           git add data/latest.json data/history/market data/quality/latest.json
           if ! git diff --cached --quiet; then
             git commit -m "Collect verified OKX market sample and quality report"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
