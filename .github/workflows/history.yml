@@ -12,12 +12,6 @@ on:
           - auto
           - full
           - incremental
-  push:
-    branches: [main]
-    paths:
-      - 'scripts/phase1.py'
-      - 'scripts/audit_phase1.py'
-      - '.github/workflows/history.yml'
   schedule:
     - cron: '23 2 * * *'
 
