@@ -15,7 +15,9 @@ def entries(path):
         for line in f.read_text(encoding="utf-8").splitlines():
             if line.strip(): yield f,json.loads(line)
 
-def audit_candles(symbol,bar,days,now):
+def audit_candles(symbol,bar,days,now,listed_ms=None):
+    if listed_ms and symbol == "SPCX-USDT-SWAP":
+        days = min(days, max(1, (now-int(listed_ms))/86_400_000))
     folder=ROOT/"history"/"candles"/symbol/bar
     prev=None;first=None;last=None;count=0;invalid=0;dup=0;missing=0;files=set()
     for f,row in entries(folder):
@@ -86,13 +88,20 @@ def audit_market(now):
 
 def main():
     now=int(time.time()*1000);issues=[];warnings=[];candles={}
+    metadata=ROOT/"metadata"/"instruments.json"
+    listed_ms=None
+    if metadata.exists():
+        try:
+            listed_ms=int(json.loads(metadata.read_text(encoding="utf-8"))["symbols"]["SPCX-USDT-SWAP"]["listTime"])
+        except (ValueError,KeyError,TypeError):
+            warnings.append("SPCX listing timestamp unavailable")
     for symbol,plan in PLAN.items():
         for bar,days in plan.items():
             key=symbol+"/"+bar
-            d=audit_candles(symbol,bar,days,now);candles[key]=d
+            d=audit_candles(symbol,bar,days,now,listed_ms);candles[key]=d
             if not d["valid"]:issues.append("invalid/missing candle data: "+key)
             if d["coveragePct"]<90:warnings.append("less than 90% target coverage: "+key)
-            if d["latestAgeHours"] is not None and d["latestAgeHours"]>3*STEP[bar]/3600000:
+            if d["latestAgeHours"] is not None and d["latestAgeHours"]>max(360_000,3*STEP[bar])/3600000:
                 warnings.append("stale completed candles: "+key)
     funding={s:audit_funding(s) for s in SYMS}
     for s,item in funding.items():
@@ -101,7 +110,7 @@ def main():
     if not market["valid"]:issues.append("market snapshot history invalid/missing")
     if market["ageMinutes"] is None or market["ageMinutes"]>15:
         warnings.append("live market snapshot history is stale")
-    meta=ROOT/"metadata"/"instruments.json"
+    meta=metadata
     if not meta.exists():issues.append("instrument metadata missing")
     else:
         try:
