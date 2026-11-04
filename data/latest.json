@@ -1,15 +1,15 @@
 {
-  "checkedAt": "2026-11-04T16:07:06.201860+00:00",
+  "checkedAt": "2026-11-04T16:16:31.008105+00:00",
   "ok": true,
   "source": "OKX official public REST API",
   "symbols": {
     "SPCX-USDT-SWAP": {
       "instId": "SPCX-USDT-SWAP",
-      "last": 135.6,
-      "markPx": 135.6,
-      "lastTs": 1793808421073,
-      "markTs": 1793808421749,
-      "open24h": 141.9,
+      "last": 136.85,
+      "markPx": 136.89,
+      "lastTs": 1793808986481,
+      "markTs": 1793808987031,
+      "open24h": 141.3,
       "high24h": 142.81,
       "low24h": 129.94,
       "tickerEndpoint": "https://openapi.okx.com",
@@ -20,8 +20,8 @@
           "open": 136.75,
           "high": 137.16,
           "low": 135.36,
-          "close": 135.6,
-          "volume": 23354.8,
+          "close": 136.9,
+          "volume": 45020.99,
           "confirmed": false
         },
         {
@@ -139,8 +139,8 @@
           "open": 136.75,
           "high": 137.16,
           "low": 135.36,
-          "close": 135.62,
-          "volume": 22994.29,
+          "close": 136.86,
+          "volume": 45033.21,
           "confirmed": false
         },
         {
@@ -258,8 +258,8 @@
           "open": 136.75,
           "high": 137.16,
           "low": 135.36,
-          "close": 135.64,
-          "volume": 23430.71,
+          "close": 136.88,
+          "volume": 44996.67,
           "confirmed": false
         },
         {
@@ -373,26 +373,26 @@
       ],
       "rolling60m": {
         "method": "confirmed 1m close-to-close",
-        "fromTs": 1793804880000,
-        "toTs": 1793808360000,
-        "firstClose": 138.82,
-        "lastClose": 135.57,
-        "netReturnPct": -2.3412,
-        "maxCloseDrawdownPct": -3.33,
+        "fromTs": 1793805420000,
+        "toTs": 1793808900000,
+        "firstClose": 139.29,
+        "lastClose": 136.97,
+        "netReturnPct": -1.6656,
+        "maxCloseDrawdownPct": -2.6916,
         "points": 59
       },
-      "fundingRate": 8.06231940883e-05,
+      "fundingRate": 7.1479220672e-05,
       "nextFundingTime": 1793865600000,
-      "openInterestUsd": 59509606.27429998,
-      "openInterestTs": 1793808424023
+      "openInterestUsd": 60018077.10399999,
+      "openInterestTs": 1793808989052
     },
     "BTC-USDT-SWAP": {
       "instId": "BTC-USDT-SWAP",
-      "last": 80370.0,
-      "markPx": 80373.3,
-      "lastTs": 1793808421063,
-      "markTs": 1793808422158,
-      "open24h": 77618.7,
+      "last": 80554.7,
+      "markPx": 80549.4,
+      "lastTs": 1793808986715,
+      "markTs": 1793808987407,
+      "open24h": 77529.5,
       "high24h": 81199.9,
       "low24h": 75690.1,
       "tickerEndpoint": "https://openapi.okx.com",
@@ -401,10 +401,10 @@
         {
           "ts": 1793808000000,
           "open": 80273.5,
-          "high": 80489.4,
+          "high": 80655.9,
           "low": 80267.9,
-          "close": 80388.7,
-          "volume": 111992.43,
+          "close": 80547.8,
+          "volume": 242349.23,
           "confirmed": false
         },
         {
@@ -520,10 +520,10 @@
         {
           "ts": 1793808000000,
           "open": 80273.5,
-          "high": 80489.4,
+          "high": 80655.9,
           "low": 80267.9,
-          "close": 80388.8,
-          "volume": 111992.5,
+          "close": 80547.8,
+          "volume": 242349.23,
           "confirmed": false
         },
         {
@@ -639,10 +639,10 @@
         {
           "ts": 1793808000000,
           "open": 80273.5,
-          "high": 80489.4,
+          "high": 80655.9,
           "low": 80267.9,
-          "close": 80369.9,
-          "volume": 111785.54,
+          "close": 80547.9,
+          "volume": 242347.44,
           "confirmed": false
         },
         {
@@ -756,16 +756,16 @@
       ],
       "fundingRate": 0.0001,
       "nextFundingTime": 1793865600000,
-      "openInterestUsd": 2757806229.0086517,
-      "openInterestTs": 1793808425048
+      "openInterestUsd": 2771508611.070012,
+      "openInterestTs": 1793808989981
     },
     "ETH-USDT-SWAP": {
       "instId": "ETH-USDT-SWAP",
-      "last": 2432.0,
-      "markPx": 2431.9,
-      "lastTs": 1793808422369,
-      "markTs": 1793808422864,
-      "open24h": 2296.23,
+      "last": 2438.11,
+      "markPx": 2437.85,
+      "lastTs": 1793808987070,
+      "markTs": 1793808987887,
+      "open24h": 2290.56,
       "high24h": 2451.13,
       "low24h": 2225.01,
       "tickerEndpoint": "https://openapi.okx.com",
@@ -774,10 +774,10 @@
         {
           "ts": 1793808000000,
           "open": 2425.79,
-          "high": 2437.37,
+          "high": 2446.08,
           "low": 2425.79,
-          "close": 2432.69,
-          "volume": 498591.16,
+          "close": 2438.25,
+          "volume": 1042492.49,
           "confirmed": false
         },
         {
@@ -893,10 +893,10 @@
         {
           "ts": 1793808000000,
           "open": 2425.79,
-          "high": 2437.37,
+          "high": 2446.08,
           "low": 2425.79,
-          "close": 2432.7,
-          "volume": 498553.56,
+          "close": 2438.25,
+          "volume": 1042492.49,
           "confirmed": false
         },
         {
@@ -1012,10 +1012,10 @@
         {
           "ts": 1793808000000,
           "open": 2425.79,
-          "high": 2437.37,
+          "high": 2446.08,
           "low": 2425.79,
-          "close": 2433.19,
-          "volume": 498781.6,
+          "close": 2438.27,
+          "volume": 1042772.61,
           "confirmed": false
         },
         {
@@ -1129,8 +1129,8 @@
       ],
       "fundingRate": 0.0001,
       "nextFundingTime": 1793865600000,
-      "openInterestUsd": 1619983540.5767543,
-      "openInterestTs": 1793808426124
+      "openInterestUsd": 1624540104.282244,
+      "openInterestTs": 1793808990923
     }
   },
   "supplementalErrors": []

@@ -1,22 +1,22 @@
 {
-  "generatedAt":"2026-11-04T16:07:06.278217Z",
-  "sourceCheckedAt":"2026-11-04T16:07:06.201860+00:00",
+  "generatedAt":"2026-11-04T16:16:31.083376Z",
+  "sourceCheckedAt":"2026-11-04T16:16:31.008105+00:00",
   "status":"degraded",
   "marketHistoryFile":"data/history/market/2026-11-04.jsonl",
-  "marketSamplesToday":1,
+  "marketSamplesToday":2,
   "symbols":{
     "SPCX-USDT-SWAP":{
-      "quoteAgeSeconds":5.13,
+      "quoteAgeSeconds":4.53,
       "hasFunding":true,
       "hasOpenInterest":true
     },
     "BTC-USDT-SWAP":{
-      "quoteAgeSeconds":5.14,
+      "quoteAgeSeconds":4.29,
       "hasFunding":true,
       "hasOpenInterest":true
     },
     "ETH-USDT-SWAP":{
-      "quoteAgeSeconds":3.83,
+      "quoteAgeSeconds":3.94,
       "hasFunding":true,
       "hasOpenInterest":true
     }
