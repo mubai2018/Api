@@ -1,3 +1,3 @@
-phase1 acceptance run: 2026-11-05 KST
-mode=auto
-purpose=verify real history collection and publication
+phase1-final-closure
+purpose=re-audit listing-bounded coverage, data continuity, settled funding, and minute freshness
+mode=auto_incremental
