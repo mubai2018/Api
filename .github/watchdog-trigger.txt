@@ -1,3 +1,3 @@
-first-reliability-acceptance
-verify=source-freshness,cron-events,outage-and-recovery
-mode=read-only-market
+recovery-check=2026-11-04T17:30:00Z
+purpose=trigger-independent-watchdog-and-schedule-evidence
+no-private-okx-key=true
