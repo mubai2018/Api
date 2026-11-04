@@ -1,28 +1,37 @@
 {
-  "checkedAt": "2026-11-04T15:43:54.570517+00:00",
+  "checkedAt": "2026-11-04T16:07:06.201860+00:00",
   "ok": true,
   "source": "OKX official public REST API",
   "symbols": {
     "SPCX-USDT-SWAP": {
       "instId": "SPCX-USDT-SWAP",
-      "last": 137.92,
-      "markPx": 137.98,
-      "lastTs": 1793807030138,
-      "markTs": 1793807030523,
-      "open24h": 142.19,
+      "last": 135.6,
+      "markPx": 135.6,
+      "lastTs": 1793808421073,
+      "markTs": 1793808421749,
+      "open24h": 141.9,
       "high24h": 142.81,
       "low24h": 129.94,
       "tickerEndpoint": "https://openapi.okx.com",
       "markEndpoint": "https://openapi.okx.com",
       "candles1H": [
         {
+          "ts": 1793808000000,
+          "open": 136.75,
+          "high": 137.16,
+          "low": 135.36,
+          "close": 135.6,
+          "volume": 23354.8,
+          "confirmed": false
+        },
+        {
           "ts": 1793804400000,
           "open": 136.88,
           "high": 140.75,
-          "low": 136.56,
-          "close": 138.09,
-          "volume": 270546.49,
-          "confirmed": false
+          "low": 135.84,
+          "close": 136.76,
+          "volume": 346632.17,
+          "confirmed": true
         },
         {
           "ts": 1793800800000,
@@ -122,26 +131,26 @@
           "close": 134.43,
           "volume": 91569.71,
           "confirmed": true
-        },
-        {
-          "ts": 1793761200000,
-          "open": 132.89,
-          "high": 134.59,
-          "low": 131.81,
-          "close": 133.21,
-          "volume": 129029.0,
-          "confirmed": true
         }
       ],
       "candles4H": [
+        {
+          "ts": 1793808000000,
+          "open": 136.75,
+          "high": 137.16,
+          "low": 135.36,
+          "close": 135.62,
+          "volume": 22994.29,
+          "confirmed": false
+        },
         {
           "ts": 1793793600000,
           "open": 134.6,
           "high": 140.75,
           "low": 129.94,
-          "close": 137.92,
-          "volume": 1345205.69,
-          "confirmed": false
+          "close": 136.76,
+          "volume": 1420676.98,
+          "confirmed": true
         },
         {
           "ts": 1793779200000,
@@ -241,26 +250,26 @@
           "close": 138.3,
           "volume": 196320.16,
           "confirmed": true
-        },
-        {
-          "ts": 1793620800000,
-          "open": 137.89,
-          "high": 142.3,
-          "low": 136.43,
-          "close": 141.01,
-          "volume": 692766.94,
-          "confirmed": true
         }
       ],
       "candles1D": [
+        {
+          "ts": 1793808000000,
+          "open": 136.75,
+          "high": 137.16,
+          "low": 135.36,
+          "close": 135.64,
+          "volume": 23430.71,
+          "confirmed": false
+        },
         {
           "ts": 1793721600000,
           "open": 142.24,
           "high": 142.81,
           "low": 129.94,
-          "close": 138.12,
-          "volume": 2832356.42,
-          "confirmed": false
+          "close": 136.76,
+          "volume": 2908473.78,
+          "confirmed": true
         },
         {
           "ts": 1793635200000,
@@ -360,52 +369,52 @@
           "close": 146.21,
           "volume": 355066.68,
           "confirmed": true
-        },
-        {
-          "ts": 1792684800000,
-          "open": 150.68,
-          "high": 150.96,
-          "low": 143.78,
-          "close": 148.17,
-          "volume": 2412942.37,
-          "confirmed": true
         }
       ],
       "rolling60m": {
         "method": "confirmed 1m close-to-close",
-        "fromTs": 1793803440000,
-        "toTs": 1793806920000,
-        "firstClose": 137.91,
-        "lastClose": 138.53,
-        "netReturnPct": 0.4496,
-        "maxCloseDrawdownPct": -1.7987,
+        "fromTs": 1793804880000,
+        "toTs": 1793808360000,
+        "firstClose": 138.82,
+        "lastClose": 135.57,
+        "netReturnPct": -2.3412,
+        "maxCloseDrawdownPct": -3.33,
         "points": 59
       },
-      "fundingRate": 0.0001126393518036,
-      "nextFundingTime": 1793836800000,
-      "openInterestUsd": 62063199.12959996,
-      "openInterestTs": 1793807032540
+      "fundingRate": 8.06231940883e-05,
+      "nextFundingTime": 1793865600000,
+      "openInterestUsd": 59509606.27429998,
+      "openInterestTs": 1793808424023
     },
     "BTC-USDT-SWAP": {
       "instId": "BTC-USDT-SWAP",
-      "last": 80336.4,
-      "markPx": 80330.7,
-      "lastTs": 1793807030165,
-      "markTs": 1793807030928,
-      "open24h": 77618.3,
+      "last": 80370.0,
+      "markPx": 80373.3,
+      "lastTs": 1793808421063,
+      "markTs": 1793808422158,
+      "open24h": 77618.7,
       "high24h": 81199.9,
       "low24h": 75690.1,
       "tickerEndpoint": "https://openapi.okx.com",
       "markEndpoint": "https://openapi.okx.com",
       "candles1H": [
         {
+          "ts": 1793808000000,
+          "open": 80273.5,
+          "high": 80489.4,
+          "low": 80267.9,
+          "close": 80388.7,
+          "volume": 111992.43,
+          "confirmed": false
+        },
+        {
           "ts": 1793804400000,
           "open": 79302.0,
           "high": 81199.9,
           "low": 79270.0,
-          "close": 80333.0,
-          "volume": 2637096.47,
-          "confirmed": false
+          "close": 80273.5,
+          "volume": 3005682.12,
+          "confirmed": true
         },
         {
           "ts": 1793800800000,
@@ -505,26 +514,26 @@
           "close": 77345.7,
           "volume": 977068.9,
           "confirmed": true
-        },
-        {
-          "ts": 1793761200000,
-          "open": 76131.4,
-          "high": 76547.0,
-          "low": 75690.1,
-          "close": 76450.2,
-          "volume": 1315045.22,
-          "confirmed": true
         }
       ],
       "candles4H": [
+        {
+          "ts": 1793808000000,
+          "open": 80273.5,
+          "high": 80489.4,
+          "low": 80267.9,
+          "close": 80388.8,
+          "volume": 111992.5,
+          "confirmed": false
+        },
         {
           "ts": 1793793600000,
           "open": 78440.4,
           "high": 81199.9,
           "low": 77976.0,
-          "close": 80333.0,
-          "volume": 4945202.42,
-          "confirmed": false
+          "close": 80273.5,
+          "volume": 5313788.07,
+          "confirmed": true
         },
         {
           "ts": 1793779200000,
@@ -624,26 +633,26 @@
           "close": 77062.9,
           "volume": 1509997.88,
           "confirmed": true
-        },
-        {
-          "ts": 1793620800000,
-          "open": 77855.2,
-          "high": 78237.4,
-          "low": 77222.0,
-          "close": 77486.2,
-          "volume": 1735578.82,
-          "confirmed": true
         }
       ],
       "candles1D": [
+        {
+          "ts": 1793808000000,
+          "open": 80273.5,
+          "high": 80489.4,
+          "low": 80267.9,
+          "close": 80369.9,
+          "volume": 111785.54,
+          "confirmed": false
+        },
         {
           "ts": 1793721600000,
           "open": 77656.5,
           "high": 81199.9,
           "low": 75690.1,
-          "close": 80333.1,
-          "volume": 13302441.66,
-          "confirmed": false
+          "close": 80273.5,
+          "volume": 13670333.79,
+          "confirmed": true
         },
         {
           "ts": 1793635200000,
@@ -743,42 +752,42 @@
           "close": 79755.1,
           "volume": 6248028.18,
           "confirmed": true
-        },
-        {
-          "ts": 1792684800000,
-          "open": 81650.0,
-          "high": 82047.6,
-          "low": 80900.0,
-          "close": 81651.1,
-          "volume": 5813051.2,
-          "confirmed": true
         }
       ],
       "fundingRate": 0.0001,
-      "nextFundingTime": 1793836800000,
-      "openInterestUsd": 2757555756.0832624,
-      "openInterestTs": 1793807033495
+      "nextFundingTime": 1793865600000,
+      "openInterestUsd": 2757806229.0086517,
+      "openInterestTs": 1793808425048
     },
     "ETH-USDT-SWAP": {
       "instId": "ETH-USDT-SWAP",
-      "last": 2426.82,
-      "markPx": 2426.82,
-      "lastTs": 1793807030766,
-      "markTs": 1793807031313,
-      "open24h": 2296.01,
+      "last": 2432.0,
+      "markPx": 2431.9,
+      "lastTs": 1793808422369,
+      "markTs": 1793808422864,
+      "open24h": 2296.23,
       "high24h": 2451.13,
       "low24h": 2225.01,
       "tickerEndpoint": "https://openapi.okx.com",
       "markEndpoint": "https://openapi.okx.com",
       "candles1H": [
         {
+          "ts": 1793808000000,
+          "open": 2425.79,
+          "high": 2437.37,
+          "low": 2425.79,
+          "close": 2432.69,
+          "volume": 498591.16,
+          "confirmed": false
+        },
+        {
           "ts": 1793804400000,
           "open": 2378.23,
           "high": 2451.13,
           "low": 2377.33,
-          "close": 2426.5,
-          "volume": 8727964.63,
-          "confirmed": false
+          "close": 2425.8,
+          "volume": 9747497.33,
+          "confirmed": true
         },
         {
           "ts": 1793800800000,
@@ -878,26 +887,26 @@
           "close": 2279.06,
           "volume": 2574196.54,
           "confirmed": true
-        },
-        {
-          "ts": 1793761200000,
-          "open": 2243.65,
-          "high": 2249.96,
-          "low": 2225.01,
-          "close": 2248.48,
-          "volume": 2625101.12,
-          "confirmed": true
         }
       ],
       "candles4H": [
+        {
+          "ts": 1793808000000,
+          "open": 2425.79,
+          "high": 2437.37,
+          "low": 2425.79,
+          "close": 2432.7,
+          "volume": 498553.56,
+          "confirmed": false
+        },
         {
           "ts": 1793793600000,
           "open": 2326.74,
           "high": 2451.13,
           "low": 2308.46,
-          "close": 2426.81,
-          "volume": 17379955.82,
-          "confirmed": false
+          "close": 2425.8,
+          "volume": 18402329.91,
+          "confirmed": true
         },
         {
           "ts": 1793779200000,
@@ -997,26 +1006,26 @@
           "close": 2253.22,
           "volume": 6051663.42,
           "confirmed": true
-        },
-        {
-          "ts": 1793620800000,
-          "open": 2285.85,
-          "high": 2303.33,
-          "low": 2263.01,
-          "close": 2272.35,
-          "volume": 6805021.08,
-          "confirmed": true
         }
       ],
       "candles1D": [
+        {
+          "ts": 1793808000000,
+          "open": 2425.79,
+          "high": 2437.37,
+          "low": 2425.79,
+          "close": 2433.19,
+          "volume": 498781.6,
+          "confirmed": false
+        },
         {
           "ts": 1793721600000,
           "open": 2298.5,
           "high": 2451.13,
           "low": 2225.01,
-          "close": 2426.5,
-          "volume": 41908113.05,
-          "confirmed": false
+          "close": 2425.8,
+          "volume": 42927645.75,
+          "confirmed": true
         },
         {
           "ts": 1793635200000,
@@ -1116,21 +1125,12 @@
           "close": 2304.73,
           "volume": 22805626.01,
           "confirmed": true
-        },
-        {
-          "ts": 1792684800000,
-          "open": 2397.58,
-          "high": 2417.0,
-          "low": 2358.0,
-          "close": 2406.51,
-          "volume": 21168483.31,
-          "confirmed": true
         }
       ],
       "fundingRate": 0.0001,
-      "nextFundingTime": 1793836800000,
-      "openInterestUsd": 1633262955.4373944,
-      "openInterestTs": 1793807034489
+      "nextFundingTime": 1793865600000,
+      "openInterestUsd": 1619983540.5767543,
+      "openInterestTs": 1793808426124
     }
   },
   "supplementalErrors": []

@@ -1,0 +1,28 @@
+{
+  "generatedAt":"2026-11-04T16:07:06.278217Z",
+  "sourceCheckedAt":"2026-11-04T16:07:06.201860+00:00",
+  "status":"degraded",
+  "marketHistoryFile":"data/history/market/2026-11-04.jsonl",
+  "marketSamplesToday":1,
+  "symbols":{
+    "SPCX-USDT-SWAP":{
+      "quoteAgeSeconds":5.13,
+      "hasFunding":true,
+      "hasOpenInterest":true
+    },
+    "BTC-USDT-SWAP":{
+      "quoteAgeSeconds":5.14,
+      "hasFunding":true,
+      "hasOpenInterest":true
+    },
+    "ETH-USDT-SWAP":{
+      "quoteAgeSeconds":3.83,
+      "hasFunding":true,
+      "hasOpenInterest":true
+    }
+  },
+  "warnings":[
+    "instrument metadata not yet available"
+  ],
+  "note":"GitHub polling is best effort; stale files are not current data"
+}
