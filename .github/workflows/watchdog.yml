@@ -7,7 +7,7 @@ on:
     paths:
       - '.github/watchdog-trigger.txt'
   schedule:
-    - cron: '7,22,37,52 * * * *'
+    - cron: '4,19,34,49 * * * *'
 
 permissions:
   contents: write
