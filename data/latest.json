@@ -1,43 +1,1137 @@
 {
-  "checkedAt": "2026-11-04T15:41:15.151716+00:00",
+  "checkedAt": "2026-11-04T15:43:54.570517+00:00",
   "ok": true,
   "source": "OKX official public REST API",
   "symbols": {
     "SPCX-USDT-SWAP": {
       "instId": "SPCX-USDT-SWAP",
-      "last": 138.47,
-      "markPx": 138.43,
-      "lastTs": 1793806874272,
-      "markTs": 1793806875605,
-      "open24h": 142.39,
+      "last": 137.92,
+      "markPx": 137.98,
+      "lastTs": 1793807030138,
+      "markTs": 1793807030523,
+      "open24h": 142.19,
       "high24h": 142.81,
       "low24h": 129.94,
       "tickerEndpoint": "https://openapi.okx.com",
-      "markEndpoint": "https://openapi.okx.com"
+      "markEndpoint": "https://openapi.okx.com",
+      "candles1H": [
+        {
+          "ts": 1793804400000,
+          "open": 136.88,
+          "high": 140.75,
+          "low": 136.56,
+          "close": 138.09,
+          "volume": 270546.49,
+          "confirmed": false
+        },
+        {
+          "ts": 1793800800000,
+          "open": 132.77,
+          "high": 139.38,
+          "low": 131.77,
+          "close": 136.89,
+          "volume": 493150.69,
+          "confirmed": true
+        },
+        {
+          "ts": 1793797200000,
+          "open": 130.72,
+          "high": 134.47,
+          "low": 129.94,
+          "close": 132.77,
+          "volume": 339290.94,
+          "confirmed": true
+        },
+        {
+          "ts": 1793793600000,
+          "open": 134.6,
+          "high": 134.64,
+          "low": 130.0,
+          "close": 130.73,
+          "volume": 241603.18,
+          "confirmed": true
+        },
+        {
+          "ts": 1793790000000,
+          "open": 135.15,
+          "high": 135.66,
+          "low": 133.9,
+          "close": 134.61,
+          "volume": 86346.5,
+          "confirmed": true
+        },
+        {
+          "ts": 1793786400000,
+          "open": 136.55,
+          "high": 137.26,
+          "low": 134.95,
+          "close": 135.15,
+          "volume": 73213.44,
+          "confirmed": true
+        },
+        {
+          "ts": 1793782800000,
+          "open": 136.3,
+          "high": 136.84,
+          "low": 134.78,
+          "close": 136.56,
+          "volume": 108475.18,
+          "confirmed": true
+        },
+        {
+          "ts": 1793779200000,
+          "open": 135.48,
+          "high": 137.05,
+          "low": 135.45,
+          "close": 136.28,
+          "volume": 59535.06,
+          "confirmed": true
+        },
+        {
+          "ts": 1793775600000,
+          "open": 134.97,
+          "high": 135.92,
+          "low": 134.67,
+          "close": 135.48,
+          "volume": 30481.88,
+          "confirmed": true
+        },
+        {
+          "ts": 1793772000000,
+          "open": 135.07,
+          "high": 135.58,
+          "low": 134.48,
+          "close": 134.97,
+          "volume": 48075.67,
+          "confirmed": true
+        },
+        {
+          "ts": 1793768400000,
+          "open": 134.45,
+          "high": 136.07,
+          "low": 134.12,
+          "close": 135.07,
+          "volume": 96797.89,
+          "confirmed": true
+        },
+        {
+          "ts": 1793764800000,
+          "open": 133.21,
+          "high": 134.51,
+          "low": 131.78,
+          "close": 134.43,
+          "volume": 91569.71,
+          "confirmed": true
+        },
+        {
+          "ts": 1793761200000,
+          "open": 132.89,
+          "high": 134.59,
+          "low": 131.81,
+          "close": 133.21,
+          "volume": 129029.0,
+          "confirmed": true
+        }
+      ],
+      "candles4H": [
+        {
+          "ts": 1793793600000,
+          "open": 134.6,
+          "high": 140.75,
+          "low": 129.94,
+          "close": 137.92,
+          "volume": 1345205.69,
+          "confirmed": false
+        },
+        {
+          "ts": 1793779200000,
+          "open": 135.48,
+          "high": 137.26,
+          "low": 133.9,
+          "close": 134.61,
+          "volume": 327570.18,
+          "confirmed": true
+        },
+        {
+          "ts": 1793764800000,
+          "open": 133.21,
+          "high": 136.07,
+          "low": 131.78,
+          "close": 135.48,
+          "volume": 266925.15,
+          "confirmed": true
+        },
+        {
+          "ts": 1793750400000,
+          "open": 141.17,
+          "high": 141.45,
+          "low": 131.81,
+          "close": 133.21,
+          "volume": 553425.16,
+          "confirmed": true
+        },
+        {
+          "ts": 1793736000000,
+          "open": 140.86,
+          "high": 142.81,
+          "low": 140.46,
+          "close": 141.19,
+          "volume": 118463.96,
+          "confirmed": true
+        },
+        {
+          "ts": 1793721600000,
+          "open": 142.24,
+          "high": 142.3,
+          "low": 140.4,
+          "close": 140.86,
+          "volume": 221412.35,
+          "confirmed": true
+        },
+        {
+          "ts": 1793707200000,
+          "open": 137.28,
+          "high": 142.99,
+          "low": 136.7,
+          "close": 142.26,
+          "volume": 478676.49,
+          "confirmed": true
+        },
+        {
+          "ts": 1793692800000,
+          "open": 137.58,
+          "high": 138.46,
+          "low": 137.14,
+          "close": 137.3,
+          "volume": 80338.97,
+          "confirmed": true
+        },
+        {
+          "ts": 1793678400000,
+          "open": 137.51,
+          "high": 137.99,
+          "low": 136.83,
+          "close": 137.58,
+          "volume": 44507.88,
+          "confirmed": true
+        },
+        {
+          "ts": 1793664000000,
+          "open": 137.53,
+          "high": 138.09,
+          "low": 137.37,
+          "close": 137.52,
+          "volume": 46880.33,
+          "confirmed": true
+        },
+        {
+          "ts": 1793649600000,
+          "open": 138.3,
+          "high": 138.8,
+          "low": 136.09,
+          "close": 137.53,
+          "volume": 98873.8,
+          "confirmed": true
+        },
+        {
+          "ts": 1793635200000,
+          "open": 141.02,
+          "high": 141.52,
+          "low": 137.42,
+          "close": 138.3,
+          "volume": 196320.16,
+          "confirmed": true
+        },
+        {
+          "ts": 1793620800000,
+          "open": 137.89,
+          "high": 142.3,
+          "low": 136.43,
+          "close": 141.01,
+          "volume": 692766.94,
+          "confirmed": true
+        }
+      ],
+      "candles1D": [
+        {
+          "ts": 1793721600000,
+          "open": 142.24,
+          "high": 142.81,
+          "low": 129.94,
+          "close": 138.12,
+          "volume": 2832356.42,
+          "confirmed": false
+        },
+        {
+          "ts": 1793635200000,
+          "open": 141.02,
+          "high": 142.99,
+          "low": 136.09,
+          "close": 142.26,
+          "volume": 945597.63,
+          "confirmed": true
+        },
+        {
+          "ts": 1793548800000,
+          "open": 137.89,
+          "high": 142.3,
+          "low": 136.43,
+          "close": 141.01,
+          "volume": 964055.27,
+          "confirmed": true
+        },
+        {
+          "ts": 1793462400000,
+          "open": 137.19,
+          "high": 138.27,
+          "low": 137.07,
+          "close": 137.9,
+          "volume": 73463.94,
+          "confirmed": true
+        },
+        {
+          "ts": 1793376000000,
+          "open": 138.68,
+          "high": 138.87,
+          "low": 134.81,
+          "close": 137.2,
+          "volume": 420705.2,
+          "confirmed": true
+        },
+        {
+          "ts": 1793289600000,
+          "open": 144.56,
+          "high": 145.18,
+          "low": 136.25,
+          "close": 138.7,
+          "volume": 1069491.89,
+          "confirmed": true
+        },
+        {
+          "ts": 1793203200000,
+          "open": 145.01,
+          "high": 146.0,
+          "low": 141.33,
+          "close": 144.56,
+          "volume": 953956.93,
+          "confirmed": true
+        },
+        {
+          "ts": 1793116800000,
+          "open": 150.32,
+          "high": 151.64,
+          "low": 142.53,
+          "close": 145.01,
+          "volume": 947190.41,
+          "confirmed": true
+        },
+        {
+          "ts": 1793030400000,
+          "open": 149.69,
+          "high": 150.41,
+          "low": 147.04,
+          "close": 150.32,
+          "volume": 1012485.9,
+          "confirmed": true
+        },
+        {
+          "ts": 1792944000000,
+          "open": 148.93,
+          "high": 150.57,
+          "low": 144.95,
+          "close": 149.71,
+          "volume": 978234.85,
+          "confirmed": true
+        },
+        {
+          "ts": 1792857600000,
+          "open": 146.21,
+          "high": 149.05,
+          "low": 145.71,
+          "close": 148.92,
+          "volume": 140721.2,
+          "confirmed": true
+        },
+        {
+          "ts": 1792771200000,
+          "open": 148.17,
+          "high": 148.39,
+          "low": 145.2,
+          "close": 146.21,
+          "volume": 355066.68,
+          "confirmed": true
+        },
+        {
+          "ts": 1792684800000,
+          "open": 150.68,
+          "high": 150.96,
+          "low": 143.78,
+          "close": 148.17,
+          "volume": 2412942.37,
+          "confirmed": true
+        }
+      ],
+      "rolling60m": {
+        "method": "confirmed 1m close-to-close",
+        "fromTs": 1793803440000,
+        "toTs": 1793806920000,
+        "firstClose": 137.91,
+        "lastClose": 138.53,
+        "netReturnPct": 0.4496,
+        "maxCloseDrawdownPct": -1.7987,
+        "points": 59
+      },
+      "fundingRate": 0.0001126393518036,
+      "nextFundingTime": 1793836800000,
+      "openInterestUsd": 62063199.12959996,
+      "openInterestTs": 1793807032540
     },
     "BTC-USDT-SWAP": {
       "instId": "BTC-USDT-SWAP",
-      "last": 80540.6,
-      "markPx": 80541.7,
-      "lastTs": 1793806875135,
-      "markTs": 1793806876008,
-      "open24h": 77599.9,
+      "last": 80336.4,
+      "markPx": 80330.7,
+      "lastTs": 1793807030165,
+      "markTs": 1793807030928,
+      "open24h": 77618.3,
       "high24h": 81199.9,
       "low24h": 75690.1,
       "tickerEndpoint": "https://openapi.okx.com",
-      "markEndpoint": "https://openapi.okx.com"
+      "markEndpoint": "https://openapi.okx.com",
+      "candles1H": [
+        {
+          "ts": 1793804400000,
+          "open": 79302.0,
+          "high": 81199.9,
+          "low": 79270.0,
+          "close": 80333.0,
+          "volume": 2637096.47,
+          "confirmed": false
+        },
+        {
+          "ts": 1793800800000,
+          "open": 78339.0,
+          "high": 79650.0,
+          "low": 78164.6,
+          "close": 79302.0,
+          "volume": 1483162.4,
+          "confirmed": true
+        },
+        {
+          "ts": 1793797200000,
+          "open": 78261.5,
+          "high": 78515.5,
+          "low": 78255.9,
+          "close": 78339.0,
+          "volume": 262250.14,
+          "confirmed": true
+        },
+        {
+          "ts": 1793793600000,
+          "open": 78440.4,
+          "high": 78466.3,
+          "low": 77976.0,
+          "close": 78261.5,
+          "volume": 562693.41,
+          "confirmed": true
+        },
+        {
+          "ts": 1793790000000,
+          "open": 78569.6,
+          "high": 78690.8,
+          "low": 78425.0,
+          "close": 78440.5,
+          "volume": 210827.56,
+          "confirmed": true
+        },
+        {
+          "ts": 1793786400000,
+          "open": 78360.2,
+          "high": 78688.0,
+          "low": 78345.0,
+          "close": 78569.6,
+          "volume": 254187.09,
+          "confirmed": true
+        },
+        {
+          "ts": 1793782800000,
+          "open": 78461.9,
+          "high": 78533.2,
+          "low": 78261.7,
+          "close": 78360.3,
+          "volume": 235243.97,
+          "confirmed": true
+        },
+        {
+          "ts": 1793779200000,
+          "open": 78105.4,
+          "high": 78490.0,
+          "low": 78105.4,
+          "close": 78461.9,
+          "volume": 472550.93,
+          "confirmed": true
+        },
+        {
+          "ts": 1793775600000,
+          "open": 77964.9,
+          "high": 78345.6,
+          "low": 77858.0,
+          "close": 78105.3,
+          "volume": 395642.01,
+          "confirmed": true
+        },
+        {
+          "ts": 1793772000000,
+          "open": 77716.6,
+          "high": 78045.2,
+          "low": 77716.6,
+          "close": 77965.0,
+          "volume": 356875.87,
+          "confirmed": true
+        },
+        {
+          "ts": 1793768400000,
+          "open": 77345.8,
+          "high": 78170.2,
+          "low": 77232.4,
+          "close": 77716.6,
+          "volume": 999842.77,
+          "confirmed": true
+        },
+        {
+          "ts": 1793764800000,
+          "open": 76450.1,
+          "high": 77577.8,
+          "low": 76389.1,
+          "close": 77345.7,
+          "volume": 977068.9,
+          "confirmed": true
+        },
+        {
+          "ts": 1793761200000,
+          "open": 76131.4,
+          "high": 76547.0,
+          "low": 75690.1,
+          "close": 76450.2,
+          "volume": 1315045.22,
+          "confirmed": true
+        }
+      ],
+      "candles4H": [
+        {
+          "ts": 1793793600000,
+          "open": 78440.4,
+          "high": 81199.9,
+          "low": 77976.0,
+          "close": 80333.0,
+          "volume": 4945202.42,
+          "confirmed": false
+        },
+        {
+          "ts": 1793779200000,
+          "open": 78105.4,
+          "high": 78690.8,
+          "low": 78105.4,
+          "close": 78440.5,
+          "volume": 1172809.55,
+          "confirmed": true
+        },
+        {
+          "ts": 1793764800000,
+          "open": 76450.1,
+          "high": 78345.6,
+          "low": 76389.1,
+          "close": 78105.3,
+          "volume": 2729429.55,
+          "confirmed": true
+        },
+        {
+          "ts": 1793750400000,
+          "open": 77439.4,
+          "high": 77530.1,
+          "low": 75690.1,
+          "close": 76450.2,
+          "volume": 2917138.38,
+          "confirmed": true
+        },
+        {
+          "ts": 1793736000000,
+          "open": 77588.1,
+          "high": 78049.4,
+          "low": 77400.0,
+          "close": 77439.4,
+          "volume": 752671.52,
+          "confirmed": true
+        },
+        {
+          "ts": 1793721600000,
+          "open": 77656.5,
+          "high": 77888.8,
+          "low": 77346.4,
+          "close": 77588.1,
+          "volume": 784496.72,
+          "confirmed": true
+        },
+        {
+          "ts": 1793707200000,
+          "open": 77074.0,
+          "high": 77856.6,
+          "low": 76966.5,
+          "close": 77656.5,
+          "volume": 1927260.41,
+          "confirmed": true
+        },
+        {
+          "ts": 1793692800000,
+          "open": 76796.4,
+          "high": 77247.5,
+          "low": 76488.0,
+          "close": 77074.1,
+          "volume": 878991.81,
+          "confirmed": true
+        },
+        {
+          "ts": 1793678400000,
+          "open": 76908.9,
+          "high": 77126.9,
+          "low": 76360.0,
+          "close": 76796.5,
+          "volume": 1029086.44,
+          "confirmed": true
+        },
+        {
+          "ts": 1793664000000,
+          "open": 76795.6,
+          "high": 77297.8,
+          "low": 76520.0,
+          "close": 76908.9,
+          "volume": 1149422.11,
+          "confirmed": true
+        },
+        {
+          "ts": 1793649600000,
+          "open": 77062.9,
+          "high": 77196.7,
+          "low": 76688.8,
+          "close": 76795.5,
+          "volume": 725351.99,
+          "confirmed": true
+        },
+        {
+          "ts": 1793635200000,
+          "open": 77486.1,
+          "high": 77657.3,
+          "low": 76666.8,
+          "close": 77062.9,
+          "volume": 1509997.88,
+          "confirmed": true
+        },
+        {
+          "ts": 1793620800000,
+          "open": 77855.2,
+          "high": 78237.4,
+          "low": 77222.0,
+          "close": 77486.2,
+          "volume": 1735578.82,
+          "confirmed": true
+        }
+      ],
+      "candles1D": [
+        {
+          "ts": 1793721600000,
+          "open": 77656.5,
+          "high": 81199.9,
+          "low": 75690.1,
+          "close": 80333.1,
+          "volume": 13302441.66,
+          "confirmed": false
+        },
+        {
+          "ts": 1793635200000,
+          "open": 77486.1,
+          "high": 77856.6,
+          "low": 76360.0,
+          "close": 77656.5,
+          "volume": 7220110.64,
+          "confirmed": true
+        },
+        {
+          "ts": 1793548800000,
+          "open": 77942.6,
+          "high": 78831.1,
+          "low": 77222.0,
+          "close": 77486.2,
+          "volume": 5219163.15,
+          "confirmed": true
+        },
+        {
+          "ts": 1793462400000,
+          "open": 77542.6,
+          "high": 78207.0,
+          "low": 77387.1,
+          "close": 77942.6,
+          "volume": 2436544.32,
+          "confirmed": true
+        },
+        {
+          "ts": 1793376000000,
+          "open": 77570.1,
+          "high": 77696.0,
+          "low": 76260.0,
+          "close": 77542.6,
+          "volume": 4469158.65,
+          "confirmed": true
+        },
+        {
+          "ts": 1793289600000,
+          "open": 81744.2,
+          "high": 81944.4,
+          "low": 76472.0,
+          "close": 77570.1,
+          "volume": 17472224.49,
+          "confirmed": true
+        },
+        {
+          "ts": 1793203200000,
+          "open": 80520.1,
+          "high": 81883.0,
+          "low": 79666.0,
+          "close": 81744.1,
+          "volume": 9124406.77,
+          "confirmed": true
+        },
+        {
+          "ts": 1793116800000,
+          "open": 80534.6,
+          "high": 81786.9,
+          "low": 80350.0,
+          "close": 80520.1,
+          "volume": 5553736.42,
+          "confirmed": true
+        },
+        {
+          "ts": 1793030400000,
+          "open": 80399.9,
+          "high": 80674.9,
+          "low": 79477.9,
+          "close": 80534.7,
+          "volume": 5818908.74,
+          "confirmed": true
+        },
+        {
+          "ts": 1792944000000,
+          "open": 80600.0,
+          "high": 80919.0,
+          "low": 79322.9,
+          "close": 80399.9,
+          "volume": 6765531.84,
+          "confirmed": true
+        },
+        {
+          "ts": 1792857600000,
+          "open": 79755.0,
+          "high": 81008.0,
+          "low": 79526.9,
+          "close": 80599.9,
+          "volume": 3928235.48,
+          "confirmed": true
+        },
+        {
+          "ts": 1792771200000,
+          "open": 81651.2,
+          "high": 81819.9,
+          "low": 79168.0,
+          "close": 79755.1,
+          "volume": 6248028.18,
+          "confirmed": true
+        },
+        {
+          "ts": 1792684800000,
+          "open": 81650.0,
+          "high": 82047.6,
+          "low": 80900.0,
+          "close": 81651.1,
+          "volume": 5813051.2,
+          "confirmed": true
+        }
+      ],
+      "fundingRate": 0.0001,
+      "nextFundingTime": 1793836800000,
+      "openInterestUsd": 2757555756.0832624,
+      "openInterestTs": 1793807033495
     },
     "ETH-USDT-SWAP": {
       "instId": "ETH-USDT-SWAP",
-      "last": 2436.0,
-      "markPx": 2436.16,
-      "lastTs": 1793806875266,
-      "markTs": 1793806876433,
-      "open24h": 2296.96,
+      "last": 2426.82,
+      "markPx": 2426.82,
+      "lastTs": 1793807030766,
+      "markTs": 1793807031313,
+      "open24h": 2296.01,
       "high24h": 2451.13,
       "low24h": 2225.01,
       "tickerEndpoint": "https://openapi.okx.com",
-      "markEndpoint": "https://openapi.okx.com"
+      "markEndpoint": "https://openapi.okx.com",
+      "candles1H": [
+        {
+          "ts": 1793804400000,
+          "open": 2378.23,
+          "high": 2451.13,
+          "low": 2377.33,
+          "close": 2426.5,
+          "volume": 8727964.63,
+          "confirmed": false
+        },
+        {
+          "ts": 1793800800000,
+          "open": 2318.15,
+          "high": 2387.99,
+          "low": 2311.56,
+          "close": 2378.24,
+          "volume": 6266259.02,
+          "confirmed": true
+        },
+        {
+          "ts": 1793797200000,
+          "open": 2312.68,
+          "high": 2321.0,
+          "low": 2312.68,
+          "close": 2318.14,
+          "volume": 690556.16,
+          "confirmed": true
+        },
+        {
+          "ts": 1793793600000,
+          "open": 2326.74,
+          "high": 2328.46,
+          "low": 2308.46,
+          "close": 2312.68,
+          "volume": 1698017.4,
+          "confirmed": true
+        },
+        {
+          "ts": 1793790000000,
+          "open": 2327.44,
+          "high": 2338.87,
+          "low": 2325.19,
+          "close": 2326.75,
+          "volume": 1119951.24,
+          "confirmed": true
+        },
+        {
+          "ts": 1793786400000,
+          "open": 2321.63,
+          "high": 2334.7,
+          "low": 2320.02,
+          "close": 2327.44,
+          "volume": 1174024.19,
+          "confirmed": true
+        },
+        {
+          "ts": 1793782800000,
+          "open": 2322.37,
+          "high": 2323.92,
+          "low": 2314.54,
+          "close": 2321.64,
+          "volume": 820223.13,
+          "confirmed": true
+        },
+        {
+          "ts": 1793779200000,
+          "open": 2302.6,
+          "high": 2328.85,
+          "low": 2302.53,
+          "close": 2322.37,
+          "volume": 2654270.75,
+          "confirmed": true
+        },
+        {
+          "ts": 1793775600000,
+          "open": 2296.7,
+          "high": 2313.0,
+          "low": 2294.0,
+          "close": 2302.61,
+          "volume": 1386725.1,
+          "confirmed": true
+        },
+        {
+          "ts": 1793772000000,
+          "open": 2291.97,
+          "high": 2299.98,
+          "low": 2287.38,
+          "close": 2296.7,
+          "volume": 1162449.11,
+          "confirmed": true
+        },
+        {
+          "ts": 1793768400000,
+          "open": 2279.07,
+          "high": 2307.06,
+          "low": 2275.66,
+          "close": 2291.96,
+          "volume": 2274603.58,
+          "confirmed": true
+        },
+        {
+          "ts": 1793764800000,
+          "open": 2248.48,
+          "high": 2285.85,
+          "low": 2246.66,
+          "close": 2279.06,
+          "volume": 2574196.54,
+          "confirmed": true
+        },
+        {
+          "ts": 1793761200000,
+          "open": 2243.65,
+          "high": 2249.96,
+          "low": 2225.01,
+          "close": 2248.48,
+          "volume": 2625101.12,
+          "confirmed": true
+        }
+      ],
+      "candles4H": [
+        {
+          "ts": 1793793600000,
+          "open": 2326.74,
+          "high": 2451.13,
+          "low": 2308.46,
+          "close": 2426.81,
+          "volume": 17379955.82,
+          "confirmed": false
+        },
+        {
+          "ts": 1793779200000,
+          "open": 2302.6,
+          "high": 2338.87,
+          "low": 2302.53,
+          "close": 2326.75,
+          "volume": 5768469.31,
+          "confirmed": true
+        },
+        {
+          "ts": 1793764800000,
+          "open": 2248.48,
+          "high": 2313.0,
+          "low": 2246.66,
+          "close": 2302.61,
+          "volume": 7397974.33,
+          "confirmed": true
+        },
+        {
+          "ts": 1793750400000,
+          "open": 2274.0,
+          "high": 2280.29,
+          "low": 2225.01,
+          "close": 2248.48,
+          "volume": 7094006.16,
+          "confirmed": true
+        },
+        {
+          "ts": 1793736000000,
+          "open": 2286.08,
+          "high": 2298.97,
+          "low": 2272.45,
+          "close": 2274.0,
+          "volume": 1732200.36,
+          "confirmed": true
+        },
+        {
+          "ts": 1793721600000,
+          "open": 2298.5,
+          "high": 2303.51,
+          "low": 2283.26,
+          "close": 2286.07,
+          "volume": 2532665.68,
+          "confirmed": true
+        },
+        {
+          "ts": 1793707200000,
+          "open": 2266.32,
+          "high": 2308.0,
+          "low": 2263.4,
+          "close": 2298.51,
+          "volume": 7437979.66,
+          "confirmed": true
+        },
+        {
+          "ts": 1793692800000,
+          "open": 2256.91,
+          "high": 2274.3,
+          "low": 2249.47,
+          "close": 2266.32,
+          "volume": 3091050.85,
+          "confirmed": true
+        },
+        {
+          "ts": 1793678400000,
+          "open": 2252.51,
+          "high": 2259.89,
+          "low": 2240.11,
+          "close": 2256.91,
+          "volume": 2424803.53,
+          "confirmed": true
+        },
+        {
+          "ts": 1793664000000,
+          "open": 2252.61,
+          "high": 2264.57,
+          "low": 2243.37,
+          "close": 2252.51,
+          "volume": 2578038.37,
+          "confirmed": true
+        },
+        {
+          "ts": 1793649600000,
+          "open": 2253.22,
+          "high": 2260.8,
+          "low": 2244.25,
+          "close": 2252.6,
+          "volume": 2022302.33,
+          "confirmed": true
+        },
+        {
+          "ts": 1793635200000,
+          "open": 2272.34,
+          "high": 2277.36,
+          "low": 2236.06,
+          "close": 2253.22,
+          "volume": 6051663.42,
+          "confirmed": true
+        },
+        {
+          "ts": 1793620800000,
+          "open": 2285.85,
+          "high": 2303.33,
+          "low": 2263.01,
+          "close": 2272.35,
+          "volume": 6805021.08,
+          "confirmed": true
+        }
+      ],
+      "candles1D": [
+        {
+          "ts": 1793721600000,
+          "open": 2298.5,
+          "high": 2451.13,
+          "low": 2225.01,
+          "close": 2426.5,
+          "volume": 41908113.05,
+          "confirmed": false
+        },
+        {
+          "ts": 1793635200000,
+          "open": 2272.34,
+          "high": 2308.0,
+          "low": 2236.06,
+          "close": 2298.51,
+          "volume": 23605838.16,
+          "confirmed": true
+        },
+        {
+          "ts": 1793548800000,
+          "open": 2265.72,
+          "high": 2318.09,
+          "low": 2246.23,
+          "close": 2272.35,
+          "volume": 22417735.77,
+          "confirmed": true
+        },
+        {
+          "ts": 1793462400000,
+          "open": 2249.17,
+          "high": 2277.51,
+          "low": 2244.61,
+          "close": 2265.72,
+          "volume": 9194382.16,
+          "confirmed": true
+        },
+        {
+          "ts": 1793376000000,
+          "open": 2225.48,
+          "high": 2254.37,
+          "low": 2215.56,
+          "close": 2249.16,
+          "volume": 11612967.32,
+          "confirmed": true
+        },
+        {
+          "ts": 1793289600000,
+          "open": 2368.0,
+          "high": 2378.82,
+          "low": 2171.52,
+          "close": 2225.48,
+          "volume": 56838190.8,
+          "confirmed": true
+        },
+        {
+          "ts": 1793203200000,
+          "open": 2333.99,
+          "high": 2391.16,
+          "low": 2292.25,
+          "close": 2367.99,
+          "volume": 32915490.94,
+          "confirmed": true
+        },
+        {
+          "ts": 1793116800000,
+          "open": 2345.91,
+          "high": 2387.28,
+          "low": 2321.31,
+          "close": 2334.0,
+          "volume": 19545231.86,
+          "confirmed": true
+        },
+        {
+          "ts": 1793030400000,
+          "open": 2327.28,
+          "high": 2354.85,
+          "low": 2296.45,
+          "close": 2345.92,
+          "volume": 22449216.47,
+          "confirmed": true
+        },
+        {
+          "ts": 1792944000000,
+          "open": 2343.13,
+          "high": 2364.7,
+          "low": 2291.72,
+          "close": 2327.27,
+          "volume": 25623774.47,
+          "confirmed": true
+        },
+        {
+          "ts": 1792857600000,
+          "open": 2304.72,
+          "high": 2370.96,
+          "low": 2293.0,
+          "close": 2343.13,
+          "volume": 17054765.77,
+          "confirmed": true
+        },
+        {
+          "ts": 1792771200000,
+          "open": 2406.51,
+          "high": 2412.98,
+          "low": 2281.02,
+          "close": 2304.73,
+          "volume": 22805626.01,
+          "confirmed": true
+        },
+        {
+          "ts": 1792684800000,
+          "open": 2397.58,
+          "high": 2417.0,
+          "low": 2358.0,
+          "close": 2406.51,
+          "volume": 21168483.31,
+          "confirmed": true
+        }
+      ],
+      "fundingRate": 0.0001,
+      "nextFundingTime": 1793836800000,
+      "openInterestUsd": 1633262955.4373944,
+      "openInterestTs": 1793807034489
     }
-  }
+  },
+  "supplementalErrors": []
 }
