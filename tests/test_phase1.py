@@ -45,6 +45,26 @@ class Phase1Tests(unittest.TestCase):
         row = [str(midnight_utc8), "100", "110", "90", "105", "5", "1", "1", "1"]
         self.assertIsNotNone(phase1.parse_candle(row, "1D", midnight_utc8 + 100_000_000))
 
+    def test_funding_uses_realized_rate(self):
+        old_call = phase1.call
+        old_sleep = phase1.time.sleep
+        try:
+            now = phase1.msnow() - 3_600_000
+            phase1.call = lambda path: [{
+                "instId": "SPCX-USDT-SWAP",
+                "fundingTime": str(now),
+                "fundingRate": "0.00010",
+                "realizedRate": "0.00012"
+            }]
+            phase1.time.sleep = lambda _: None
+            records, pages = phase1.fetch_funding("SPCX-USDT-SWAP", "incremental")
+            self.assertEqual(pages, 1)
+            self.assertEqual(records[0][1], 0.00012)
+            self.assertEqual(records[0][2], 0.00010)
+        finally:
+            phase1.call = old_call
+            phase1.time.sleep = old_sleep
+
     def test_deduplicated_archive_and_quality_report(self):
         src = self.sample()
         phase1.write_json(phase1.ROOT / "latest.json", src)
