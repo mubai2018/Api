@@ -33,6 +33,9 @@ Before using a snapshot as fresh: require `ok == true`, UTC `checkedAt` within *
 
 - [SPCX risk snapshot](data/risk/latest.json) — order-book spread/visible liquidity, latest up to 100 public trades, 5/15/60m confirmed-close moves, funding, open interest and threshold signals.
 - [Pipeline heartbeat](data/quality/pipeline.json) — last attempted collection job outcomes, including failures.
+- [Independent watchdog](data/quality/watchdog.json) — 10/20-minute source freshness checks and actual GitHub schedule-run evidence.
+- [Unique risk event lifecycle](data/risk/alert_state.json) — opened/escalated/recovered events, with transitions archived under `data/risk/alerts/`.
+- [Reliability and deduplication runbook](docs/RELIABILITY.md) — independent watchdog, fault recovery, notification dedup and remaining scheduler validation.
 - [Chinese phase3 documentation](docs/PHASE3.md).
 
 Price threshold signals use only fresh validated data. GitHub Actions samples approximately every 5 minutes, while ChatGPT user-facing risk alerts are checked hourly; neither is real-time tick monitoring. There is no personal account, balance, liquidation price, or private OKX API key.
