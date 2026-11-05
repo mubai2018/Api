@@ -1,4 +1,5 @@
 import { Database } from "bun:sqlite";
+import { unlink } from "node:fs/promises";
 /**
  * SPCX public realtime feed. No credentials or trading.
  * HTTP: /health, /latest, /events
@@ -179,6 +180,19 @@ archives.run("CREATE TABLE IF NOT EXISTS event_history (id INTEGER PRIMARY KEY A
 archives.run("CREATE TABLE IF NOT EXISTS funding_history (symbol TEXT NOT NULL,ts INTEGER NOT NULL,realized_rate REAL,funding_rate REAL,source TEXT NOT NULL,PRIMARY KEY(symbol,ts))");
 archives.run("CREATE TABLE IF NOT EXISTS oi_history (symbol TEXT NOT NULL,ts INTEGER NOT NULL,oi_usd REAL NOT NULL,source TEXT NOT NULL,PRIMARY KEY(symbol,ts))");
 archives.run("CREATE TABLE IF NOT EXISTS archive_meta (key TEXT PRIMARY KEY,value TEXT NOT NULL)");
+try{lastStoredAt=Number((archives.query("SELECT MAX(ts) AS ts FROM quote_samples").get() as any)?.ts)||0;}
+catch(err){console.log("SPCX_SNAPSHOT_CURSOR_ERROR",String(err).slice(0,100));}
+try{
+  for(const bound of alertThresholds){
+    const opened="PRICE_BELOW_"+bound;
+    const lastEvent=archives.query("SELECT code FROM event_history WHERE code IN (?,?) ORDER BY ts DESC LIMIT 1").get(opened,"RECOVERED_"+opened) as any;
+    if(lastEvent?.code===opened)active.add(opened);
+  }
+}catch(err){console.log("SPCX_EVENT_STATE_RECOVERY_ERROR",String(err).slice(0,120));}
+try{
+  const saved=archives.query("SELECT value FROM archive_meta WHERE key='last_verified_backup'").get() as any;
+  if(saved){const val=JSON.parse(saved.value);lastBackupAt=Number(val.ts)||0;backupBytes=Number(val.bytes)||0;}
+}catch(err){console.log("SPCX_BACKUP_METADATA_ERROR",String(err).slice(0,140));}
 const insQuote=archives.query("INSERT OR IGNORE INTO quote_samples(ts,last,mark,last_ts,mark_ts,last_source,mark_source,btc,eth,funding,oi_usd,checked_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
 const insBar=archives.query("INSERT OR IGNORE INTO candles(symbol,bar,ts,open,high,low,close,volume,source) VALUES(?,?,?,?,?,?,?,?,?)");
 const insEvent=archives.query("INSERT OR IGNORE INTO event_history(ts,code,kind,price,source) VALUES(?,?,?,?,?)");
@@ -196,9 +210,11 @@ function archiveEvent(event:Event){
 }
 function archiveQuoteSample(q:any){
   if(!q.healthy||!q.last||!q.mark)return;
-  const ts=Date.parse(q.asOf);
-  if(!Number.isFinite(ts)||ts<=lastStoredAt)return;
-  const c=marketContext;
+  const stamp=Date.parse(q.asOf);
+  if(!Number.isFinite(stamp))return;
+  const ts=Math.floor(stamp/60000)*60000;
+  if(ts<=lastStoredAt)return;
+  const c=marketContext && stamp-Date.parse(marketContext.checkedAt)<=300000?marketContext:null;
   safeDb("quote",()=>{
     insQuote.run(ts,q.last.price,q.mark.price,q.last.ts,q.mark.ts,q.last.source,q.mark.source,
       c?.btc?.last??null,c?.eth?.last??null,c?.funding?.fundingRate??null,c?.openInterest?.oiUsd??null,q.asOf);
@@ -265,7 +281,7 @@ function historicalAnalytics(minutes=1440){
     }
     out.maxGapMinutes=Number((maxGap/60000).toFixed(2));
     out.coveragePct=Number((100*rows.length/(windowMinutes+1)).toFixed(2));
-    out.coverageWithinObservedSpanPct=Number((100*rows.length/(Math.floor(elapsed/60000)+1)).toFixed(2));
+    out.coverageWithinObservedSpanPct=Number(Math.min(100,100*rows.length/(Math.floor(elapsed/60000)+1)).toFixed(2));
     out.netPct=Number((100*(rows.at(-1)!.last/rows[0].last-1)).toFixed(4));
     out.high=high;out.low=low;out.realizedVolPct=Number((100*Math.sqrt(logSquare)).toFixed(4));
   }
@@ -353,10 +369,30 @@ async function backupDatabase(){
     if(length!==data.byteLength)throw new Error("S3 uploaded byte count mismatch");
     const exists=await bucketClient.exists(name);
     if(!exists)throw new Error("S3 HEAD verification failed");
+    // Verify a small backup can actually be read back and opened as SQLite.
+    // Cap restore-in-memory check to avoid exceeding Trial RAM on a large archive.
+    if(length<=16*1024*1024){
+      const downloaded=new Uint8Array(await bucketClient.file(name).arrayBuffer());
+      if(downloaded.byteLength!==length)throw new Error("S3 restore download length mismatch");
+      const testPath="/data/restore-test-"+Date.now()+".sqlite";
+      await Bun.write(testPath,downloaded);
+      let restored:Database|null=null;
+      try{
+        restored=new Database(testPath,{readonly:true,create:false});
+        const integrity=(restored.query("PRAGMA quick_check").all() as any[]).map(x=>Object.values(x)[0]);
+        if(!integrity.length||integrity.some(x=>x!=="ok"))throw new Error("Restored SQLite integrity invalid");
+        const restoredRows=(restored.query("SELECT COUNT(*) AS count FROM quote_samples").get() as any)?.count;
+        console.log("SPCX_DURABLE_BACKUP_RESTORE_TEST_OK",JSON.stringify({key:name,bytes:length,restoredQuoteRows:restoredRows}));
+      }finally{
+        if(restored)restored.close();
+        await unlink(testPath).catch(()=>{});
+      }
+    }
     await bucketClient.write("latest.json",JSON.stringify({key:name,bytes:length,createdAt:new Date().toISOString(),
       quoteCount:(archives.query("SELECT COUNT(*) AS count FROM quote_samples").get() as any)?.count??0}),
       {type:"application/json",acl:"private"});
     lastBackupAt=Date.now();backupBytes=length;backupError=null;
+    safeDb("backup-metadata",()=>{archives.query("INSERT OR REPLACE INTO archive_meta(key,value) VALUES(?,?)").run("last_verified_backup",JSON.stringify({ts:lastBackupAt,bytes:length,key:name}));});
     console.log("SPCX_DURABLE_BACKUP_OK",JSON.stringify({at:new Date(lastBackupAt).toISOString(),key:name,bytes:length}));
   }catch(err){backupError=String(err).slice(0,250);console.log("SPCX_DURABLE_BACKUP_FAIL",backupError);}
   finally{backupBusy=false;}
@@ -370,6 +406,15 @@ const historyPlans:{symbol:string;bar:string;days:number}[]=[
 let historyPlanIndex=0;
 let historyBusy=false;
 const archivedComplete=new Set<string>();
+try{
+  for(const row of archives.query("SELECT key FROM archive_meta WHERE key LIKE 'backfill_complete/%'").all() as any[]){
+    archivedComplete.add(String(row.key).slice("backfill_complete/".length));
+  }
+}catch(err){console.log("SPCX_BACKFILL_META_LOAD_ERROR",String(err).slice(0,160));}
+function completeBackfill(key:string){
+  archivedComplete.add(key);
+  safeDb("backfill-meta",()=>{archives.query("INSERT OR REPLACE INTO archive_meta(key,value) VALUES(?,?)").run("backfill_complete/"+key,new Date().toISOString());});
+}
 async function backfillNext(){
   if(historyBusy)return;historyBusy=true;
   try{
@@ -383,18 +428,18 @@ async function backfillNext(){
     const earliest=archives.query("SELECT MIN(ts) AS ts FROM candles WHERE symbol=? AND bar=?").get(plan.symbol,plan.bar) as any;
     const cursor=Number(earliest?.ts??0);
     const stop=Date.now()-plan.days*86400000;
-    if(cursor&&cursor<=stop){archivedComplete.add(key);return;}
+    if(cursor&&cursor<=stop){completeBackfill(key);return;}
     let path="/api/v5/market/history-candles?instId="+encodeURIComponent(plan.symbol)+"&bar="+plan.bar+"&limit=100";
     if(cursor)path+="&after="+cursor;
     const rows=await fetchPublicRows(path);
     backfillRequests++;
     if(rows.length===0){
-      archivedComplete.add(key);
+      completeBackfill(key);
       console.log("SPCX_BACKFILL_REACHED_SOURCE_LIMIT",JSON.stringify({key,requests:backfillRequests,oldestAvailable:cursor}));
       return;
     }
     const r=archiveBars(plan.symbol,plan.bar,rows,"OKX-official-history-candles");
-    if(!r.accepted || (cursor&&r.oldest!==null&&r.oldest>=cursor)) archivedComplete.add(key);
+    if(!r.accepted || (cursor&&r.oldest!==null&&r.oldest>=cursor)) completeBackfill(key);
     if(backfillRequests<=11||backfillRequests%30===0||archivedComplete.has(key))
       console.log("SPCX_BACKFILL_PROGRESS",JSON.stringify({key,rows:r.accepted,oldest:r.oldest,requests:backfillRequests,complete:archivedComplete.has(key)}));
   }catch(err){backfillFailures++;console.log("SPCX_BACKFILL_RETRY",String(err).slice(0,200));}
@@ -402,17 +447,30 @@ async function backfillNext(){
 }
 async function archiveFunding(){
   try{
-    const raw=await fetchPublicRows("/api/v5/public/funding-rate-history?instId="+INST+"&limit=100");
+    const path="/api/v5/public/funding-rate-history?instId="+INST+"&limit=100";
     let accepted=0;
-    for(const r of raw){
-      if(r.instId!==INST)continue;
-      const ts=Number(r.fundingTime),settled=r.realizedRate===""?null:Number(r.realizedRate);
-      const indicated=r.fundingRate===""?null:Number(r.fundingRate);
-      if(!Number.isFinite(ts)||ts>Date.now()+10000||ts<0)continue;
-      if(settled!==null&&!Number.isFinite(settled))continue;
-      insFunding.run(INST,ts,settled,indicated,"OKX-public-settled-funding");accepted++;
+    const save=(rows:any[])=>{
+      for(const r of rows){
+        if(r.instId!==INST)continue;
+        const ts=Number(r.fundingTime),settled=r.realizedRate===""||r.realizedRate==null?null:Number(r.realizedRate);
+        const indicated=r.fundingRate===""||r.fundingRate==null?null:Number(r.fundingRate);
+        if(!Number.isFinite(ts)||ts>Date.now()+10000||ts<=0)continue;
+        if(settled!==null&&!Number.isFinite(settled))continue;
+        if(indicated!==null&&!Number.isFinite(indicated))continue;
+        insFunding.run(INST,ts,settled,indicated,"OKX-public-settled-funding");accepted++;
+      }
+    };
+    save(await fetchPublicRows(path)); // Always refresh latest settlements
+    for(let page=0;page<2;page++){
+      const row=archives.query("SELECT MIN(ts) AS ts FROM funding_history WHERE symbol=?").get(INST) as any;
+      const cursor=Number(row?.ts??0);
+      if(!cursor||cursor<=Date.now()-90*86400000)break;
+      const older=await fetchPublicRows(path+"&after="+cursor);
+      if(!older.length)break;
+      save(older);
+      if(Number(older.at(-1)?.fundingTime)>=cursor)break;
     }
-    console.log("SPCX_FUNDING_ARCHIVED",accepted);
+    console.log("SPCX_FUNDING_ARCHIVED",JSON.stringify({processed:accepted,total:(archives.query("SELECT COUNT(*) AS count FROM funding_history WHERE symbol=?").get(INST) as any)?.count}));
   }catch(err){console.log("SPCX_FUNDING_ERROR",String(err).slice(0,220));}
 }
 console.log("SPCX_DURABLE_DATABASE_READY",JSON.stringify({path:MARKET_DB_PATH,counts:archiveSnapshotQuality()}));
