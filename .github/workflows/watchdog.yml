@@ -2,12 +2,6 @@ name: SPCX independent data watchdog
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - '.github/watchdog-trigger.txt'
-  schedule:
-    - cron: '4,19,34,49 * * * *'
 
 permissions:
   contents: write
