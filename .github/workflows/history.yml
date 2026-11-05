@@ -12,12 +12,6 @@ on:
           - auto
           - full
           - incremental
-  push:
-    branches: [main]
-    paths:
-      - '.github/phase1-trigger.txt'
-  schedule:
-    - cron: '23 2 * * *'
 
 permissions:
   contents: write
